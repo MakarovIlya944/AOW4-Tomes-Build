@@ -54,8 +54,6 @@
         background: var(--bg);
         color: var(--parchment);
         font-family: "IM Fell English", Georgia, serif;
-        min-height: 100vh;
-        overflow-x: hidden;
         background-image:
           radial-gradient(
             ellipse at 20% 10%,
@@ -111,26 +109,84 @@
       }
 
       /* ─── LAYOUT ─────────────────────────────────────────── */
-      #app {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        grid-template-columns: 1fr;
-        height: calc(100vh - 80px);
-        gap: 0;
+      html,
+      body {
+        height: 100%;
       }
-      .top-row {
-        display: grid;
-        grid-template-columns: 280px 1fr 280px;
-        gap: 8px;
-        padding: 8px;
-        overflow: hidden;
-        flex-shrink: 0;
-      }
-      .bottom-row {
-        padding: 0 8px 8px;
-        overflow: hidden;
+
+      body {
         display: flex;
         flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      header {
+        flex-shrink: 0;
+      }
+
+      #app {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        overflow: hidden;
+      }
+
+      .top-row {
+        display: grid;
+        grid-template-columns: 300px 1fr 300px;
+        gap: 8px;
+        padding: 8px 8px 4px;
+        flex-shrink: 0;
+        height: 42vh;
+        min-height: 260px;
+        max-height: 420px;
+      }
+
+      .bottom-row {
+        flex: 1;
+        min-height: 0;
+        padding: 4px 8px 8px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────────────────── */
+      @media (max-width: 900px) {
+        body {
+          overflow-y: auto;
+          height: auto;
+        }
+        #app {
+          overflow: visible;
+          flex: none;
+        }
+        .top-row {
+          grid-template-columns: 1fr;
+          height: auto;
+          max-height: none;
+          min-height: unset;
+        }
+        .top-row > .panel {
+          max-height: 280px;
+        }
+        .bottom-row {
+          min-height: 400px;
+          flex: none;
+          padding-bottom: 16px;
+        }
+        #build-slots {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (min-width: 901px) and (max-width: 1200px) {
+        .top-row {
+          grid-template-columns: 260px 1fr 260px;
+        }
       }
 
       /* ─── PANELS ─────────────────────────────────────────── */
@@ -142,6 +198,7 @@
         flex-direction: column;
         overflow: hidden;
         position: relative;
+        min-height: 0;
       }
       .panel::before {
         content: "";
@@ -567,10 +624,14 @@
       #list-panel {
         flex: 1;
         min-height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       #list-panel .panel-body {
         display: block;
         padding: 0 10px 10px;
+        overflow-y: auto;
       }
 
       /* Grouping */
@@ -708,14 +769,9 @@
         color: var(--gold);
       }
 
-      /* ─── DRAG GHOST ─────────────────────────────────────── */
+      /* ─── DRAG GHOST (unused, kept for safety) ──────────── */
       #drag-ghost {
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        opacity: 0.85;
-        transform: rotate(-3deg) scale(1.05);
-        transition: none;
+        display: none;
       }
 
       /* ─── ELEM COLORS ────────────────────────────────────── */
@@ -736,25 +792,6 @@
       }
       .e5 {
         color: var(--elem5);
-      }
-
-      /* ─── RESPONSIVE ─────────────────────────────────────── */
-      @media (max-width: 768px) {
-        #app {
-          height: auto;
-        }
-        .top-row {
-          grid-template-columns: 1fr;
-        }
-        .top-row > * {
-          max-height: 300px;
-        }
-        #build-slots {
-          grid-template-columns: repeat(4, 1fr);
-        }
-        #list-panel .panel-body {
-          grid-template-columns: 1fr 1fr;
-        }
       }
 
       /* ornamental divider */
