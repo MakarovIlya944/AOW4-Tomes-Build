@@ -23,8 +23,8 @@
         --forest: #1a4a25;
         --shadow: #0d0905;
         --bg: #0e0b06;
-        --panel-bg: rgba(20, 14, 6, 0.92);
-        --panel-border: rgba(200, 151, 58, 0.35);
+        --panel-bg: rgba(20,14,6,0.92);
+        --panel-border: rgba(200,151,58,0.35);
         --scroll-bg: #1a1408;
 
         --elem0: #00c0dd; /* Астрал */
@@ -42,29 +42,15 @@
         --elem5-name: "Хаос";
       }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
         background: var(--bg);
         color: var(--parchment);
-        font-family: "IM Fell English", Georgia, serif;
+        font-family: 'IM Fell English', Georgia, serif;
         background-image:
-          radial-gradient(
-            ellipse at 20% 10%,
-            rgba(200, 151, 58, 0.06) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse at 80% 90%,
-            rgba(139, 26, 26, 0.08) 0%,
-            transparent 50%
-          ),
+          radial-gradient(ellipse at 20% 10%, rgba(200,151,58,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 90%, rgba(139,26,26,0.08) 0%, transparent 50%),
           url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       }
 
@@ -73,46 +59,32 @@
         text-align: center;
         padding: 18px 20px 12px;
         border-bottom: 1px solid var(--panel-border);
-        background: linear-gradient(
-          180deg,
-          rgba(200, 151, 58, 0.08) 0%,
-          transparent 100%
-        );
+        background: linear-gradient(180deg, rgba(200,151,58,0.08) 0%, transparent 100%);
         position: relative;
       }
       header::after {
-        content: "";
+        content: '';
         position: absolute;
-        bottom: 0;
-        left: 10%;
-        right: 10%;
+        bottom: 0; left: 10%; right: 10%;
         height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--gold),
-          transparent
-        );
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
       }
       header h1 {
-        font-family: "Cinzel Decorative", serif;
+        font-family: 'Cinzel Decorative', serif;
         font-size: clamp(1rem, 3vw, 1.6rem);
         color: var(--gold-light);
-        letter-spacing: 0.12em;
-        text-shadow: 0 0 18px rgba(232, 184, 75, 0.45);
+        letter-spacing: .12em;
+        text-shadow: 0 0 18px rgba(232,184,75,0.45);
       }
       header p {
-        font-size: 0.78rem;
+        font-size: .78rem;
         color: var(--gold-dim);
         font-style: italic;
         margin-top: 2px;
       }
 
       /* ─── LAYOUT ─────────────────────────────────────────── */
-      html,
-      body {
-        height: 100%;
-      }
+      html, body { height: 100%; }
 
       body {
         display: flex;
@@ -121,9 +93,7 @@
         overflow: hidden;
       }
 
-      header {
-        flex-shrink: 0;
-      }
+      header { flex-shrink: 0; }
 
       #app {
         flex: 1;
@@ -156,37 +126,21 @@
 
       /* ─── RESPONSIVE ─────────────────────────────────────── */
       @media (max-width: 900px) {
-        body {
-          overflow-y: auto;
-          height: auto;
-        }
-        #app {
-          overflow: visible;
-          flex: none;
-        }
+        body { overflow-y: auto; height: auto; }
+        #app { overflow: visible; flex: none; }
         .top-row {
           grid-template-columns: 1fr;
           height: auto;
           max-height: none;
           min-height: unset;
         }
-        .top-row > .panel {
-          max-height: 280px;
-        }
-        .bottom-row {
-          min-height: 400px;
-          flex: none;
-          padding-bottom: 16px;
-        }
-        #build-slots {
-          grid-template-columns: 1fr;
-        }
+        .top-row > .panel { max-height: 280px; }
+        .bottom-row { min-height: 400px; flex: none; padding-bottom: 16px; }
+        #build-slots { grid-template-columns: 1fr; }
       }
 
       @media (min-width: 901px) and (max-width: 1200px) {
-        .top-row {
-          grid-template-columns: 260px 1fr 260px;
-        }
+        .top-row { grid-template-columns: 260px 1fr 260px; }
       }
 
       /* ─── PANELS ─────────────────────────────────────────── */
@@ -201,26 +155,22 @@
         min-height: 0;
       }
       .panel::before {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(200, 151, 58, 0.04) 0%,
-          transparent 60%
-        );
+        background: linear-gradient(135deg, rgba(200,151,58,0.04) 0%, transparent 60%);
         pointer-events: none;
       }
       .panel-header {
-        font-family: "Cinzel", serif;
-        font-size: 0.7rem;
+        font-family: 'Cinzel', serif;
+        font-size: .7rem;
         font-weight: 700;
-        letter-spacing: 0.18em;
+        letter-spacing: .18em;
         text-transform: uppercase;
         color: var(--gold);
         padding: 7px 12px 6px;
         border-bottom: 1px solid var(--panel-border);
-        background: rgba(200, 151, 58, 0.06);
+        background: rgba(200,151,58,0.06);
         flex-shrink: 0;
       }
       .panel-body {
@@ -230,16 +180,9 @@
         scrollbar-width: thin;
         scrollbar-color: var(--gold-dim) transparent;
       }
-      .panel-body::-webkit-scrollbar {
-        width: 5px;
-      }
-      .panel-body::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .panel-body::-webkit-scrollbar-thumb {
-        background: var(--gold-dim);
-        border-radius: 3px;
-      }
+      .panel-body::-webkit-scrollbar { width: 5px; }
+      .panel-body::-webkit-scrollbar-track { background: transparent; }
+      .panel-body::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
 
       /* ─── BOOK CARDS ─────────────────────────────────────── */
       .book-card {
@@ -247,33 +190,28 @@
         align-items: center;
         gap: 8px;
         padding: 6px 8px;
-        border: 1px solid rgba(200, 151, 58, 0.2);
+        border: 1px solid rgba(200,151,58,0.2);
         border-radius: 3px;
         margin-bottom: 5px;
         cursor: grab;
         user-select: none;
-        transition:
-          border-color 0.15s,
-          background 0.15s,
-          box-shadow 0.15s;
-        background: rgba(255, 255, 255, 0.02);
+        transition: border-color .15s, background .15s, box-shadow .15s;
+        background: rgba(255,255,255,0.02);
         position: relative;
       }
-      .book-card:active {
-        cursor: grabbing;
-      }
+      .book-card:active { cursor: grabbing; }
       .book-card:hover {
         border-color: var(--gold);
-        background: rgba(200, 151, 58, 0.1);
-        box-shadow: 0 0 10px rgba(200, 151, 58, 0.15);
+        background: rgba(200,151,58,0.1);
+        box-shadow: 0 0 10px rgba(200,151,58,0.15);
       }
       .book-card.selected {
         border-color: var(--gold-light);
-        background: rgba(200, 151, 58, 0.15);
-        box-shadow: 0 0 14px rgba(232, 184, 75, 0.25);
+        background: rgba(200,151,58,0.15);
+        box-shadow: 0 0 14px rgba(232,184,75,0.25);
       }
       .book-card.in-build {
-        opacity: 0.55;
+        opacity: .55;
       }
       .book-icon {
         width: 38px;
@@ -281,28 +219,25 @@
         object-fit: contain;
         border-radius: 3px;
         flex-shrink: 0;
-        background: rgba(200, 151, 58, 0.1);
-        border: 1px solid rgba(200, 151, 58, 0.2);
+        background: rgba(200,151,58,0.1);
+        border: 1px solid rgba(200,151,58,0.2);
       }
       .book-icon-placeholder {
         width: 38px;
         height: 38px;
         flex-shrink: 0;
-        background: rgba(200, 151, 58, 0.1);
-        border: 1px solid rgba(200, 151, 58, 0.2);
+        background: rgba(200,151,58,0.1);
+        border: 1px solid rgba(200,151,58,0.2);
         border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 18px;
       }
-      .book-info {
-        flex: 1;
-        min-width: 0;
-      }
+      .book-info { flex: 1; min-width: 0; }
       .book-name {
-        font-family: "Cinzel", serif;
-        font-size: 0.7rem;
+        font-family: 'Cinzel', serif;
+        font-size: .7rem;
         font-weight: 600;
         color: var(--parchment);
         white-space: nowrap;
@@ -310,7 +245,7 @@
         text-overflow: ellipsis;
       }
       .book-rang {
-        font-size: 0.65rem;
+        font-size: .65rem;
         color: var(--gold-dim);
         font-style: italic;
       }
@@ -321,17 +256,14 @@
         margin-top: 2px;
       }
       .elem-pip {
-        width: 10px;
-        height: 10px;
+        width: 10px; height: 10px;
         border-radius: 50%;
         display: inline-block;
         box-shadow: 0 0 4px currentColor;
       }
 
       /* ─── BUILD GRID ─────────────────────────────────────── */
-      #build-panel {
-        min-height: 0;
-      }
+      #build-panel { min-height: 0; }
       #build-slots {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -339,26 +271,24 @@
       }
       .build-slot {
         height: 52px;
-        border: 1px dashed rgba(200, 151, 58, 0.25);
+        border: 1px dashed rgba(200,151,58,0.25);
         border-radius: 4px;
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 7px;
         padding: 0 8px;
-        font-size: 0.55rem;
+        font-size: .55rem;
         color: var(--gold-dim);
-        transition:
-          border-color 0.15s,
-          background 0.15s;
+        transition: border-color .15s, background .15s;
         position: relative;
         cursor: default;
         overflow: hidden;
-        background: rgba(255, 255, 255, 0.01);
+        background: rgba(255,255,255,0.01);
       }
       .build-slot-num {
-        font-family: "Cinzel", serif;
-        font-size: 0.5rem;
+        font-family: 'Cinzel', serif;
+        font-size: .5rem;
         color: var(--gold-dim);
         min-width: 12px;
         text-align: center;
@@ -366,42 +296,29 @@
       }
       .build-slot.drag-over {
         border-color: var(--gold-light);
-        background: rgba(200, 151, 58, 0.12);
-        box-shadow: 0 0 14px rgba(232, 184, 75, 0.2);
+        background: rgba(200,151,58,0.12);
+        box-shadow: 0 0 14px rgba(232,184,75,0.2);
       }
       .build-slot.filled {
         border-style: solid;
-        border-color: rgba(200, 151, 58, 0.4);
-        background: rgba(200, 151, 58, 0.06);
+        border-color: rgba(200,151,58,0.4);
+        background: rgba(200,151,58,0.06);
         cursor: pointer;
       }
       .build-slot.filled:hover {
         border-color: var(--gold-light);
-        background: rgba(200, 151, 58, 0.14);
+        background: rgba(200,151,58,0.14);
       }
       .build-slot.filled.selected-slot {
         border-color: var(--gold-light);
-        box-shadow: 0 0 12px rgba(232, 184, 75, 0.3);
+        box-shadow: 0 0 12px rgba(232,184,75,0.3);
       }
-      .slot-icon {
-        width: 34px;
-        height: 34px;
-        object-fit: contain;
-        flex-shrink: 0;
-        border-radius: 3px;
-      }
-      .slot-icon-ph {
-        font-size: 1.4rem;
-        line-height: 1;
-        flex-shrink: 0;
-      }
-      .slot-info {
-        flex: 1;
-        min-width: 0;
-      }
+      .slot-icon { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 3px; }
+      .slot-icon-ph { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+      .slot-info { flex: 1; min-width: 0; }
       .slot-name {
-        font-family: "Cinzel", serif;
-        font-size: 0.58rem;
+        font-family: 'Cinzel', serif;
+        font-size: .58rem;
         font-weight: 600;
         color: var(--gold);
         white-space: nowrap;
@@ -410,36 +327,27 @@
         line-height: 1.3;
       }
       .slot-rang {
-        font-size: 0.52rem;
+        font-size: .52rem;
         color: var(--gold-dim);
         font-style: italic;
       }
-      .slot-elems {
-        display: flex;
-        gap: 2px;
-        margin-top: 2px;
-        flex-wrap: wrap;
-      }
+      .slot-elems { display: flex; gap: 2px; margin-top: 2px; flex-wrap: wrap; }
       .slot-remove {
         position: absolute;
-        top: 3px;
-        right: 4px;
-        width: 14px;
-        height: 14px;
-        background: rgba(139, 26, 26, 0.7);
+        top: 3px; right: 4px;
+        width: 14px; height: 14px;
+        background: rgba(139,26,26,0.7);
         border: none;
         border-radius: 50%;
         color: #ff9999;
-        font-size: 0.5rem;
+        font-size: .5rem;
         cursor: pointer;
         display: none;
         align-items: center;
         justify-content: center;
         line-height: 1;
       }
-      .build-slot.filled:hover .slot-remove {
-        display: flex;
-      }
+      .build-slot.filled:hover .slot-remove { display: flex; }
 
       /* ─── AFFINITY SUMMARY ───────────────────────────────── */
       #affinity-row {
@@ -448,7 +356,7 @@
         flex-wrap: wrap;
         margin-top: 8px;
         padding-top: 8px;
-        border-top: 1px solid rgba(200, 151, 58, 0.15);
+        border-top: 1px solid rgba(200,151,58,0.15);
       }
       .affinity-badge {
         display: flex;
@@ -456,79 +364,68 @@
         gap: 5px;
         padding: 3px 8px;
         border-radius: 20px;
-        font-family: "Cinzel", serif;
-        font-size: 0.65rem;
+        font-family: 'Cinzel', serif;
+        font-size: .65rem;
         font-weight: 600;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0,0,0,0.3);
         border: 1px solid currentColor;
       }
       .affinity-dot {
-        width: 9px;
-        height: 9px;
+        width: 9px; height: 9px;
         border-radius: 50%;
         background: currentColor;
         box-shadow: 0 0 5px currentColor;
       }
 
       /* ─── DESCRIPTION PANEL ──────────────────────────────── */
-      #desc-panel .panel-body {
-        padding: 12px;
-      }
+      #desc-panel .panel-body { padding: 12px; }
       .desc-title {
-        font-family: "Cinzel", serif;
-        font-size: 0.85rem;
+        font-family: 'Cinzel', serif;
+        font-size: .85rem;
         font-weight: 700;
         color: var(--gold-light);
         margin-bottom: 4px;
-        text-shadow: 0 0 10px rgba(232, 184, 75, 0.3);
+        text-shadow: 0 0 10px rgba(232,184,75,0.3);
       }
       .desc-rang {
-        font-size: 0.7rem;
+        font-size: .7rem;
         color: var(--gold-dim);
         font-style: italic;
         margin-bottom: 8px;
       }
-      .desc-elems {
-        margin-bottom: 10px;
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
+      .desc-elems { margin-bottom: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
       .elem-tag {
         padding: 1px 7px;
         border-radius: 10px;
-        font-family: "Cinzel", serif;
-        font-size: 0.6rem;
+        font-family: 'Cinzel', serif;
+        font-size: .6rem;
         border: 1px solid currentColor;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0,0,0,0.3);
       }
       .desc-empty {
         color: var(--gold-dim);
         font-style: italic;
-        font-size: 0.78rem;
+        font-size: .78rem;
         text-align: center;
         margin-top: 30px;
       }
 
       /* ─── TOME DATA LIST ─────────────────────────────────── */
       .tome-item {
-        border-bottom: 1px solid rgba(200, 151, 58, 0.1);
+        border-bottom: 1px solid rgba(200,151,58,0.1);
         padding-bottom: 8px;
         margin-bottom: 8px;
       }
-      .tome-item:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-      }
+      .tome-item:last-child { border-bottom: none; margin-bottom: 0; }
       .tome-item-name {
-        font-family: "Cinzel", serif;
-        font-size: 0.68rem;
+        font-family: 'Cinzel', serif;
+        font-size: .68rem;
         font-weight: 600;
         color: var(--gold);
         margin-bottom: 2px;
       }
       .tome-item-meta {
-        font-size: 0.6rem;
+        font-size: .6rem;
         color: var(--gold-dim);
         margin-bottom: 3px;
       }
@@ -536,18 +433,18 @@
         display: inline-block;
         padding: 0 5px;
         border-radius: 8px;
-        background: rgba(200, 151, 58, 0.1);
-        border: 1px solid rgba(200, 151, 58, 0.25);
-        font-size: 0.58rem;
+        background: rgba(200,151,58,0.1);
+        border: 1px solid rgba(200,151,58,0.25);
+        font-size: .58rem;
         margin-right: 4px;
       }
       .tome-item-level {
         font-style: italic;
-        font-size: 0.58rem;
+        font-size: .58rem;
         color: var(--crimson);
       }
       .tome-item-desc {
-        font-size: 0.65rem;
+        font-size: .65rem;
         color: var(--parchment-dark);
         line-height: 1.5;
         white-space: pre-wrap;
@@ -555,27 +452,27 @@
 
       /* ─── TOME DATA GROUPING ─────────────────────────── */
       .tomedata-type-header {
-        font-family: "Cinzel", serif;
-        font-size: 0.63rem;
+        font-family: 'Cinzel', serif;
+        font-size: .63rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: .1em;
         text-transform: uppercase;
         color: var(--gold);
         padding: 7px 0 4px;
         margin-top: 4px;
-        border-bottom: 1px solid rgba(200, 151, 58, 0.3);
+        border-bottom: 1px solid rgba(200,151,58,0.3);
         display: flex;
         align-items: center;
         gap: 6px;
       }
       .tomedata-type-header::before {
-        content: "◆";
-        font-size: 0.5rem;
+        content: '◆';
+        font-size: .5rem;
         color: var(--gold-dim);
       }
       .tomedata-source {
-        font-family: "IM Fell English", serif;
-        font-size: 0.56rem;
+        font-family: 'IM Fell English', serif;
+        font-size: .56rem;
         color: var(--gold-dim);
         font-weight: 400;
         font-style: italic;
@@ -584,50 +481,38 @@
       }
       .add-btn {
         flex-shrink: 0;
-        width: 22px;
-        height: 22px;
+        width: 22px; height: 22px;
         border-radius: 50%;
         border: 1px solid var(--gold-dim);
-        background: rgba(200, 151, 58, 0.1);
+        background: rgba(200,151,58,0.1);
         color: var(--gold);
-        font-size: 0.9rem;
+        font-size: .9rem;
         line-height: 1;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.15s;
+        display: flex; align-items: center; justify-content: center;
+        transition: all .15s;
         font-family: monospace;
       }
       .add-btn:hover:not(:disabled) {
-        background: rgba(200, 151, 58, 0.3);
+        background: rgba(200,151,58,0.3);
         border-color: var(--gold-light);
         color: var(--gold-light);
-        box-shadow: 0 0 6px rgba(200, 151, 58, 0.3);
+        box-shadow: 0 0 6px rgba(200,151,58,0.3);
       }
-      .add-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
+      .add-btn:disabled { opacity: .3; cursor: not-allowed; }
       .add-btn.in-build-btn {
-        border-color: rgba(139, 26, 26, 0.5);
+        border-color: rgba(139,26,26,0.5);
         color: #c04040;
-        background: rgba(139, 26, 26, 0.1);
+        background: rgba(139,26,26,0.1);
       }
       .add-btn.in-build-btn:hover {
-        background: rgba(139, 26, 26, 0.25);
+        background: rgba(139,26,26,0.25);
         border-color: #c04040;
-        box-shadow: 0 0 6px rgba(139, 26, 26, 0.3);
+        box-shadow: 0 0 6px rgba(139,26,26,0.3);
       }
 
       /* ─── BOOK LIST (BOTTOM) ─────────────────────────────── */
-      #list-panel {
-        flex: 1;
-        min-height: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
+      #list-panel { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
       #list-panel .panel-body {
         display: block;
         padding: 0 10px 10px;
@@ -636,36 +521,35 @@
 
       /* Grouping */
       .group-af-header {
-        font-family: "Cinzel", serif;
-        font-size: 0.72rem;
+        font-family: 'Cinzel', serif;
+        font-size: .72rem;
         font-weight: 700;
-        letter-spacing: 0.12em;
+        letter-spacing: .12em;
         text-transform: uppercase;
         padding: 10px 4px 4px;
         display: flex;
         align-items: center;
         gap: 7px;
         border-bottom: 1px solid currentColor;
-        opacity: 0.9;
+        opacity: .9;
         margin-top: 4px;
       }
       .group-af-dot {
-        width: 10px;
-        height: 10px;
+        width: 10px; height: 10px;
         border-radius: 50%;
         display: inline-block;
         flex-shrink: 0;
       }
       .group-rank-header {
-        font-family: "Cinzel", serif;
-        font-size: 0.6rem;
+        font-family: 'Cinzel', serif;
+        font-size: .6rem;
         font-weight: 600;
         color: var(--gold-dim);
-        letter-spacing: 0.1em;
+        letter-spacing: .1em;
         text-transform: uppercase;
         padding: 5px 4px 3px;
         margin-top: 2px;
-        opacity: 0.75;
+        opacity: .75;
       }
       .group-cards-row {
         display: grid;
@@ -681,127 +565,264 @@
         gap: 8px;
         padding: 6px 8px;
         border-bottom: 1px solid var(--panel-border);
-        background: rgba(200, 151, 58, 0.04);
+        background: rgba(200,151,58,0.04);
         flex-wrap: wrap;
       }
       .btn {
-        font-family: "Cinzel", serif;
-        font-size: 0.62rem;
+        font-family: 'Cinzel', serif;
+        font-size: .62rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: .1em;
         text-transform: uppercase;
         padding: 5px 12px;
         border: 1px solid var(--gold-dim);
         border-radius: 3px;
-        background: rgba(200, 151, 58, 0.08);
+        background: rgba(200,151,58,0.08);
         color: var(--gold);
         cursor: pointer;
-        transition: all 0.15s;
+        transition: all .15s;
       }
       .btn:hover {
-        background: rgba(200, 151, 58, 0.2);
+        background: rgba(200,151,58,0.2);
         border-color: var(--gold);
         color: var(--gold-light);
-        box-shadow: 0 0 8px rgba(200, 151, 58, 0.2);
+        box-shadow: 0 0 8px rgba(200,151,58,0.2);
       }
-      .btn.danger {
-        border-color: rgba(139, 26, 26, 0.5);
-        color: #c04040;
-      }
-      .btn.danger:hover {
-        background: rgba(139, 26, 26, 0.2);
-        border-color: #c04040;
-      }
+      .btn.danger { border-color: rgba(139,26,26,0.5); color: #c04040; }
+      .btn.danger:hover { background: rgba(139,26,26,0.2); border-color: #c04040; }
       .filter-input {
         flex: 1;
         min-width: 120px;
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(200, 151, 58, 0.2);
+        background: rgba(0,0,0,0.3);
+        border: 1px solid rgba(200,151,58,0.2);
         border-radius: 3px;
         color: var(--parchment);
-        font-family: "IM Fell English", serif;
-        font-size: 0.72rem;
+        font-family: 'IM Fell English', serif;
+        font-size: .72rem;
         padding: 4px 8px;
         outline: none;
       }
-      .filter-input:focus {
-        border-color: var(--gold);
-      }
-      .filter-input::placeholder {
-        color: var(--gold-dim);
-        font-style: italic;
-      }
+      .filter-input:focus { border-color: var(--gold); }
+      .filter-input::placeholder { color: var(--gold-dim); font-style: italic; }
       label.file-btn {
-        font-family: "Cinzel", serif;
-        font-size: 0.62rem;
+        font-family: 'Cinzel', serif;
+        font-size: .62rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: .1em;
         text-transform: uppercase;
         padding: 5px 12px;
         border: 1px solid var(--gold-dim);
         border-radius: 3px;
-        background: rgba(200, 151, 58, 0.08);
+        background: rgba(200,151,58,0.08);
         color: var(--gold);
         cursor: pointer;
-        transition: all 0.15s;
+        transition: all .15s;
         display: inline-flex;
         align-items: center;
         gap: 4px;
       }
       label.file-btn:hover {
-        background: rgba(200, 151, 58, 0.2);
+        background: rgba(200,151,58,0.2);
         border-color: var(--gold);
         color: var(--gold-light);
-        box-shadow: 0 0 8px rgba(200, 151, 58, 0.2);
+        box-shadow: 0 0 8px rgba(200,151,58,0.2);
       }
-      #file-input {
-        display: none;
-      }
+      #file-input { display: none; }
 
       .build-count {
-        font-family: "Cinzel", serif;
-        font-size: 0.65rem;
+        font-family: 'Cinzel', serif;
+        font-size: .65rem;
         color: var(--gold-dim);
         margin-left: auto;
         white-space: nowrap;
       }
-      .build-count span {
-        color: var(--gold);
-      }
+      .build-count span { color: var(--gold); }
 
       /* ─── DRAG GHOST (unused, kept for safety) ──────────── */
-      #drag-ghost {
-        display: none;
-      }
+      #drag-ghost { display: none; }
 
       /* ─── ELEM COLORS ────────────────────────────────────── */
-      .e0 {
-        color: var(--elem0);
+      .e0 { color: var(--elem0); }
+      .e1 { color: var(--elem1); }
+      .e2 { color: var(--elem2); }
+      .e3 { color: var(--elem3); }
+      .e4 { color: var(--elem4); }
+      .e5 { color: var(--elem5); }
+
+      /* ─── BONUS EDIT BUTTON ──────────────────────────────── */
+      .btn-bonus-edit {
+        font-family: 'Cinzel', serif;
+        font-size: .58rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        padding: 3px 9px;
+        border: 1px solid var(--gold-dim);
+        border-radius: 3px;
+        background: rgba(200,151,58,0.08);
+        color: var(--gold-dim);
+        cursor: pointer;
+        transition: all .15s;
+        margin-left: 8px;
+        flex-shrink: 0;
       }
-      .e1 {
-        color: var(--elem1);
+      .btn-bonus-edit:hover {
+        background: rgba(200,151,58,0.18);
+        border-color: var(--gold);
+        color: var(--gold);
       }
-      .e2 {
-        color: var(--elem2);
-      }
-      .e3 {
-        color: var(--elem3);
-      }
-      .e4 {
-        color: var(--elem4);
-      }
-      .e5 {
-        color: var(--elem5);
+      .btn-bonus-edit.active {
+        border-color: var(--gold-light);
+        color: var(--gold-light);
+        background: rgba(200,151,58,0.2);
+        box-shadow: 0 0 8px rgba(232,184,75,0.2);
       }
 
-      /* ornamental divider */
-      .ornament {
+      /* ─── AFFINITY BONUS LABEL ───────────────────────────── */
+      .affinity-bonus {
+        font-size: .58rem;
+        opacity: .7;
+        margin-left: 3px;
+        font-style: italic;
+      }
+
+      /* ─── BONUS MODAL ────────────────────────────────────── */
+      .bonus-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(3px);
+      }
+      .bonus-modal {
+        background: #14100a;
+        border: 1px solid var(--gold);
+        border-radius: 6px;
+        padding: 0;
+        min-width: 320px;
+        max-width: 480px;
+        width: 90vw;
+        box-shadow: 0 0 40px rgba(200,151,58,0.2), 0 0 80px rgba(0,0,0,0.8);
+        overflow: hidden;
+      }
+      .bonus-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px 10px;
+        background: rgba(200,151,58,0.07);
+        border-bottom: 1px solid rgba(200,151,58,0.25);
+        font-family: 'Cinzel', serif;
+        font-size: .75rem;
+        font-weight: 700;
+        color: var(--gold-light);
+        letter-spacing: .1em;
+      }
+      .bonus-close-btn {
+        background: none;
+        border: none;
+        color: var(--gold-dim);
+        font-size: .9rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 2px 4px;
+        border-radius: 3px;
+        transition: color .15s;
+      }
+      .bonus-close-btn:hover { color: var(--gold-light); }
+      .bonus-modal-hint {
+        font-size: .68rem;
+        color: var(--gold-dim);
+        font-style: italic;
+        padding: 10px 16px 6px;
+        line-height: 1.5;
+      }
+      .bonus-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px 16px 14px;
+      }
+      .bonus-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(200,151,58,0.12);
+        border-radius: 4px;
+        padding: 6px 10px;
+      }
+      .bonus-dot {
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        box-shadow: 0 0 5px currentColor;
+      }
+      .bonus-label {
+        font-family: 'Cinzel', serif;
+        font-size: .62rem;
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .bonus-controls {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+      .bonus-stepper {
+        width: 20px; height: 20px;
+        border-radius: 3px;
+        border: 1px solid rgba(200,151,58,0.3);
+        background: rgba(200,151,58,0.08);
+        color: var(--gold);
+        font-size: .8rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        transition: all .12s;
+        flex-shrink: 0;
+        font-family: monospace;
+      }
+      .bonus-stepper:hover {
+        background: rgba(200,151,58,0.22);
+        border-color: var(--gold);
+      }
+      .bonus-value {
+        width: 36px;
+        text-align: center;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid rgba(200,151,58,0.2);
+        border-radius: 3px;
+        color: var(--parchment);
+        font-family: 'Cinzel', serif;
+        font-size: .7rem;
+        padding: 2px 0;
+        outline: none;
+        -moz-appearance: textfield;
+      }
+      .bonus-value::-webkit-outer-spin-button,
+      .bonus-value::-webkit-inner-spin-button { -webkit-appearance: none; }
+      .bonus-value:focus { border-color: var(--gold); }
+      .bonus-modal-footer {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        padding: 10px 16px 14px;
+        border-top: 1px solid rgba(200,151,58,0.15);
+      }
         text-align: center;
         color: var(--gold-dim);
-        font-size: 0.7rem;
-        letter-spacing: 0.5em;
+        font-size: .7rem;
+        letter-spacing: .5em;
         padding: 4px 0;
-        opacity: 0.5;
+        opacity: .5;
       }
     </style>
   </head>
@@ -831,6 +852,13 @@
             <span class="build-count"
               >Книг: <span id="build-count-val">0</span>/14</span
             >
+            <button
+              class="btn-bonus-edit"
+              id="bonus-edit-btn"
+              title="Задать начальные бонусы приверженностей"
+            >
+              ⚖ Бонусы
+            </button>
           </div>
           <div class="panel-body">
             <div id="build-slots"></div>
@@ -870,6 +898,25 @@
             📚 Все книги заклинаний — перетащите в билд
           </div>
           <div class="panel-body" id="books-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BONUS MODAL -->
+    <div id="bonus-overlay" class="bonus-overlay" style="display: none">
+      <div class="bonus-modal">
+        <div class="bonus-modal-header">
+          <span>⚖ Начальные бонусы приверженностей</span>
+          <button class="bonus-close-btn" id="bonus-close-btn">✕</button>
+        </div>
+        <p class="bonus-modal-hint">
+          Укажите значения, которые добавляются к приверженностям до учёта книг
+          (например, от расы или особенностей лидера).
+        </p>
+        <div class="bonus-grid" id="bonus-grid"></div>
+        <div class="bonus-modal-footer">
+          <button class="btn danger" id="bonus-reset-btn">↺ Сбросить</button>
+          <button class="btn" id="bonus-apply-btn">✓ Применить</button>
         </div>
       </div>
     </div>
@@ -1981,29 +2028,29 @@
               name: "\u041f\u043e\u043a\u043e\u0440\u0438\u0442\u0435\u043b\u044c",
               desc: "\u0422\u044f\u0436\u0451\u043b\u044b\u0439 \u0443\u0434\u0430\u0440\u043d\u044b\u0439 \u044e\u043d\u0438\u0442, \u0441\u043d\u0438\u0436\u0430\u044e\u0449\u0438\u0439   \u0431\u043e\u0435\u0432\u043e\u0439 \u0434\u0443\u0445 \u043f\u0440\u043e\u0442\u0438\u0432\u043d\u0438\u043a\u0430",
               type: "\u041d\u0430\u0451\u043c",
-              cost: "",
-              level: "200 300",
+              cost: "200 300",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
               name: "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0439 \u0443\u043b\u044c\u0442\u0438\u043c\u0430\u0442\u0443\u043c",
               desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0432\u0440\u0430\u0436\u0435\u0441\u043a\u0438\u0439 \u044e\u043d\u0438\u0442, \u043e\u0431\u0440\u0430\u0442\u0438\u0432\u0448\u0438\u0439\u0441\u044f \u0432 \u0431\u0435\u0433\u0441\u0442\u0432\u043e \u0438 \u043d\u0435 \u044f\u0432\u043b\u044f\u044e\u0449\u0438\u0439\u0441\u044f \u0433\u0435\u0440\u043e\u0435\u043c:\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 90% \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0439 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c\u00bb\n\u0432 \u0441\u043b\u0443\u0447\u0430\u0435 \u0443\u0441\u043f\u0435\u0445\u0430 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 +60 \u043a  \u0431\u043e\u0435\u0432\u043e\u043c\u0443 \u0434\u0443\u0445\u0443\n\u043f\u0440\u0438 \u043d\u0435\u0443\u0434\u0430\u0447\u0435 \u2014 \u043f\u043e\u0433\u0438\u0431\u0430\u0435\u0442",
               type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
-              cost: "",
-              level: "45 30",
+              cost: "45 30",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
               name: "\u0414\u0432\u043e\u0440\u0435\u0446 \u0431\u0430\u0440\u043e\u043d\u0430",
               desc: "\u042d\u0442\u043e\u0442 \u0433\u043e\u0440\u043e\u0434 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442:\n+10 \u043a  \u0441\u0442\u0430\u0431\u0438\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0433\u043e\u0440\u043e\u0434\u0430\n+20 \u043a  \u043d\u0430\u0439\u043c\u0443\n\u0412\u0430\u0448 \u0442\u0440\u043e\u043d\u043d\u044b\u0439 \u0433\u043e\u0440\u043e\u0434 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442:\n+20 \u043a  \u0437\u043e\u043b\u043e\u0442\u0443\n+10 \u043a  \u0435\u0434\u0435\n+5  \u0438\u043c\u043f\u0435\u0440\u0438\u044f\n\u041c\u043e\u0436\u043d\u043e \u043f\u043e\u0441\u0442\u0440\u043e\u0438\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u0433\u043e\u0440\u043e\u0434\u0430\u0445 \u0434\u0440\u0443\u0433\u043e\u0433\u043e \u043d\u0430\u0440\u043e\u0434\u0430.",
               type: "\u0413\u043e\u0440\u043e\u0434\u0441\u043a\u043e\u0435 \u0441\u043e\u043e\u0440\u0443\u0436\u0435\u043d\u0438\u0435",
-              cost: "",
-              level: "100 250",
+              cost: "100 250",
+              level: "\u0410\u0434\u0435\u043f\u0442",
             },
             {
               name: "\u0410\u0443\u0440\u0430 \u0443\u0441\u0442\u0440\u0430\u0448\u0435\u043d\u0438\u044f",
               desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0410\u0443\u0440\u0430 \u0443\u0441\u0442\u0440\u0430\u0448\u0435\u043d\u0438\u044f\u00bb, \u0441\u043d\u0438\u0436\u0430\u044e\u0449\u0443\u044e  \u0431\u043e\u0435\u0432\u043e\u0439 \u0434\u0443\u0445 \u0432\u0440\u0430\u0433\u043e\u0432 \u043f\u043e\u0431\u043b\u0438\u0437\u043e\u0441\u0442\u0438\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u0431\u043e\u0439\u0446\u044b \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
               type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
-              cost: "",
-              level: "70 70",
+              cost: "70 70",
+              level: "\u042d\u043a\u0441\u043f\u0435\u0440\u0442",
             },
           ],
         },
@@ -3154,6 +3201,49 @@
           ],
         },
         {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u0447\u0440\u0435\u0432\u043e\u0443\u0433\u043e\u0434\u0438\u044f\ud83e\uddd9",
+          rang: "1",
+          elems: [0, 0, 0, 0, 0, 2],
+          icon: "icons\\Tome_of_Gluttony_0uTT.webp",
+          tome_data: [
+            {
+              name: "\u0418\u043b\u043b\u044e\u0437\u0438\u044f \u043f\u0438\u0440\u0430",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0432\u0440\u0430\u0436\u0435\u0441\u043a\u0438\u0439 \u044e\u043d\u0438\u0442:\n\u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0420\u0430\u0441\u0441\u0435\u044f\u043d\u043d\u044b\u0439\u00bb \u043d\u0430 1  \u0445\u043e\u0434\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 90% \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041e\u0433\u043b\u0443\u0448\u0435\u043d\u0438\u0435\u00bb \u043d\u0430 1  \u0445\u043e\u0434",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
+              cost: "10 15",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0424\u0430\u0439\u043b:Gluttonous Imp4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u041f\u0440\u0438\u0437\u044b\u0432 \u043f\u0440\u043e\u0436\u043e\u0440\u043b\u0438\u0432\u043e\u0433\u043e \u0431\u0435\u0441\u0430",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0433\u0435\u043a\u0441 \u043f\u0440\u043e\u0436\u043e\u0440\u043b\u0438\u0432\u043e\u0433\u043e \u0431\u0435\u0441\u0430",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430",
+              cost: "60 60",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0414\u044c\u044f\u0432\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0433\u043e\u043b\u043e\u0434",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043d\u0430\u0440\u043e\u0434 \u043f\u0440\u0435\u0434\u0430\u0451\u0442\u0441\u044f \u0431\u0435\u0437\u043c\u0435\u0440\u043d\u043e\u043c\u0443 \u0447\u0440\u0435\u0432\u043e\u0443\u0433\u043e\u0434\u0438\u044e \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438:\n\u043f\u0440\u0438 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u0435 \u0432\u0440\u0430\u0433\u043e\u0432 (\u043a\u0440\u043e\u043c\u0435 \u043f\u0440\u0438\u0437\u0432\u0430\u043d\u043d\u044b\u0445 \u043d\u0430 \u0431\u043e\u0439) \u044e\u043d\u0438\u0442\u044b \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 \u043e\u0434\u0438\u043d \u0431\u0435\u0441\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u044d\u0444\u0444\u0435\u043a\u0442\u0430 \u00ab\u0421\u044b\u0442\u043e\u0441\u0442\u044c\u00bb:\n\u043f\u043e \u0434\u043e\u0441\u0442\u0438\u0436\u0435\u043d\u0438\u0438 5 \u0443\u0440\u043e\u0432\u043d\u0435\u0439 \u044d\u0442\u043e\u0433\u043e \u044d\u0444\u0444\u0435\u043a\u0442\u0430 \u043e\u043d \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0441\u043d\u0438\u043c\u0430\u0435\u0442\u0441\u044f, \u0438 \n\u0432\u043c\u0435\u0441\u0442\u043e \u043d\u0435\u0433\u043e \u044e\u043d\u0438\u0442\u044b \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 \u043e\u0434\u0438\u043d \u0431\u0435\u0441\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u044d\u0444\u0444\u0435\u043a\u0442\u0430 \u00ab\u0414\u044c\u044f\u0432\u043e\u043b\u044c\u0441\u043a\u043e\u0435 \n\u043d\u0430\u0441\u044b\u0449\u0435\u043d\u0438\u0435\u00bb\n\u044d\u0442\u043e\u0442 \u044d\u0444\u0444\u0435\u043a\u0442 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c, \u0435\u0441\u043b\u0438 \u0443 \u044e\u043d\u0438\u0442\u0430 \u0443\u0436\u0435 \u0435\u0441\u0442\u044c 10 \u0443\u0440\u043e\u0432\u043d\u0435\u0439 \u044d\u0444\u0444\u0435\u043a\u0442\u0430 \u00ab\u0414\u044c\u044f\u0432\u043e\u043b\u044c\u0441\u043a\u043e\u0435 \u043d\u0430\u0441\u044b\u0449\u0435\u043d\u0438\u0435\u00bb\n\u041f\u0440\u0438 \u0433\u0440\u0430\u0431\u0435\u0436\u0435 \u043f\u0440\u043e\u0432\u0438\u043d\u0446\u0438\u0439 \u044e\u043d\u0438\u0442\u044b \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u044e\u0442 25% \u043e\u0442 \u0441\u0432\u043e\u0435\u0433\u043e \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0437\u0430\u043f\u0430\u0441\u0430  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f.",
+              type: "\u041d\u0435\u0437\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
+              cost: "150 150",
+              level: "\u042d\u043a\u0441\u043f\u0435\u0440\u0442",
+            },
+            {
+              name: "\u041f\u043e\u0440\u043e\u0447\u043d\u044b\u0439 \u0434\u043e\u0433\u043e\u0432\u043e\u0440",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0439 \u0433\u043e\u0440\u043e\u0434:\n\u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u044f \u0441 \u0434\u0440\u0443\u0433\u0438\u043c\u0438 \u043f\u0440\u0430\u0432\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0443\u0445\u0443\u0434\u0448\u0430\u044e\u0442\u0441\u044f \u043d\u0430 200\n\u043f\u0435\u0440\u0435\u0434\u0430\u0451\u0442 \u0432\u0430\u0448\u0438\u043c \u0433\u043e\u0440\u043e\u0434\u0430\u043c 80% \u0441\u0432\u043e\u0435\u0433\u043e \u0434\u043e\u0445\u043e\u0434\u0430  \u0435\u0434\u044b",
+              type: "\u041f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u043e\u0435 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0434\u043b\u044f \u0433\u043e\u0440\u043e\u0434\u0430",
+              cost: "60 60",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0418\u043d\u0444\u0435\u0440\u043d\u0430\u043b\u044c\u043d\u044b\u0435 \u0447\u0435\u043b\u044e\u0441\u0442\u0438",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0432\u0440\u0430\u0433 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442:\n15  \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0443\u0440\u043e\u043d\u0430\n15  \u0443\u0440\u043e\u043d\u0430 \u043e\u0433\u043d\u0451\u043c\n\u0415\u0441\u043b\u0438 \u0432\u0440\u0430\u0433 \u043f\u043e\u0433\u0438\u0431\u0430\u0435\u0442, \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \u043f\u043e \u0441\u043e\u0441\u0435\u0434\u0441\u0442\u0432\u0443:\n\n\u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u044e\u0442 20  \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f\n\u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0421\u044b\u0442\u043e\u0441\u0442\u044c\u00bb, \u0435\u0441\u043b\u0438 \u0443 \u043d\u0438\u0445 \u0435\u0441\u0442\u044c \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u043e \u00ab\u0414\u044c\u044f\u0432\u043e\u043b\u044c\u0441\u043a\u0438\u0439 \u0433\u043e\u043b\u043e\u0434\u00bb \u0438\u043b\u0438 \u00ab\u0411\u0435\u0441\u043e\u0432\u0441\u043a\u0438\u0439 \u0433\u043e\u043b\u043e\u0434\u00bb",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0443\u0440\u043e\u043d\u0430",
+              cost: "10 15",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
+        {
           tome: "\u041a\u043d\u0438\u0433\u0430 \u0431\u0435\u0441\u043f\u043e\u0440\u044f\u0434\u043a\u0430",
           rang: "2",
           elems: [0, 0, 0, 0, 0, 2],
@@ -3236,6 +3326,56 @@
               type: "\u041e\u0441\u0430\u0434\u043d\u044b\u0439 \u043f\u0440\u043e\u0435\u043a\u0442",
               cost: "50",
               level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
+        {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u0436\u0433\u0443\u0447\u0435\u0439 \u0441\u0442\u0440\u0430\u0441\u0442\u0438\ud83e\uddd9",
+          rang: "2",
+          elems: [0, 0, 0, 0, 0, 2],
+          icon: "icons\\Tome_of_Burning_Passion_H0Ky.webp",
+          tome_data: [
+            {
+              name: "\u041e\u0431\u0436\u0438\u0433\u0430\u044e\u0449\u0430\u044f \u0430\u0443\u0440\u0430",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u041e\u0431\u0436\u0438\u0433\u0430\u044e\u0449\u0430\u044f \u0430\u0443\u0440\u0430\u00bb, \u043a\u043e\u0442\u043e\u0440\u0430\u044f \u043f\u043e\u0434\u0436\u0438\u0433\u0430\u0435\u0442 \u0431\u043b\u0438\u0436\u0430\u0439\u0448\u0438\u0445 \u0432\u0440\u0430\u0433\u043e\u0432 \u0438 \u043d\u0430\u043d\u043e\u0441\u0438\u0442 \u0438\u043c \u0443\u0440\u043e\u043d\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u0431\u043e\u0439\u0446\u044b \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "80 80",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0440\u0438\u0437\u044b\u0432 \u0441\u0444\u0435\u0440\u044b \u0436\u0435\u043b\u0430\u043d\u0438\u044f",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0433\u0435\u043a\u0441 \u0441\u0444\u0435\u0440\u0443 \u0436\u0435\u043b\u0430\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u0430\u044f \u043f\u0440\u043e\u0432\u043e\u0446\u0438\u0440\u0443\u0435\u0442 \u0432\u0440\u0430\u0433\u043e\u0432 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u0438 \u00ab\u041d\u0430\u0441\u043c\u0435\u0448\u043a\u0430\u00bb \u0438 \u043f\u043e\u0434\u0436\u0438\u0433\u0430\u0435\u0442 \u0430\u0442\u0430\u043a\u0443\u044e\u0449\u0438\u0445.\n\u041f\u0440\u0438\u0437\u0432\u0430\u043d\u043d\u044b\u0439 \u044e\u043d\u0438\u0442 \u043e\u0441\u0442\u0430\u0451\u0442\u0441\u044f \u0432 \u0431\u043e\u044e \u043d\u0430 3  \u0445\u043e\u0434\u0430",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430 \u0434\u043b\u044f \u0431\u0438\u0442\u0432\u044b",
+              cost: "30 25",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0424\u0430\u0439\u043b:Temptress4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u0418\u0441\u043a\u0443\u0441\u0438\u0442\u0435\u043b\u044c\u043d\u0438\u0446\u0430",
+              desc: "\u041c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0431\u043e\u0435\u0446, \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u044b\u0439 \u043d\u0430\u043a\u043b\u0430\u0434\u044b\u0432\u0430\u0442\u044c \u043d\u0430 \u0432\u0440\u0430\u0433\u043e\u0432 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041f\u043e\u0434\u0447\u0438\u043d\u0451\u043d\u00bb",
+              type: "\u041d\u0430\u0439\u043c",
+              cost: "140 220",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0410\u0437\u0430\u0440\u0442 \u0431\u0438\u0442\u0432\u044b",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u044e\u043d\u0438\u0442 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442:\n\u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0411\u0435\u0440\u0441\u0435\u0440\u043a\u00bb \u043d\u0430 3  \u0445\u043e\u0434\u0430\n\u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0427\u0443\u0434\u043e\u0432\u0438\u0449\u043d\u0430\u044f \u0441\u0438\u043b\u0430\u00bb (5) \u043d\u0430 3  \u0445\u043e\u0434\u0430",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0443\u0441\u0438\u043b\u0435\u043d\u0438\u044f",
+              cost: "15 20",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0412\u044b\u0441\u0430\u0441\u044b\u0432\u0430\u044e\u0449\u0435\u0435 \u0441\u0438\u043b\u044b \u0432\u043b\u0438\u0432\u0430\u043d\u0438\u0435",
+              desc: "\u0411\u0430\u0437\u043e\u0432\u044b\u0435 \u0430\u0442\u0430\u043a\u0438 \u044e\u043d\u0438\u0442\u043e\u0432 \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440:\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 60% \u043c\u043e\u0433\u0443\u0442 \u043d\u0430\u043b\u043e\u0436\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0421\u043b\u0430\u0431\u043e\u0441\u0442\u044c\u00bb \u043d\u0430 3  \u0445\u043e\u0434\u0430. \u0412 \u0441\u043b\u0443\u0447\u0430\u0435 \u0443\u0441\u043f\u0435\u0445\u0430 \u0434\u0430\u0451\u0442 \u0430\u0442\u0430\u043a\u0443\u044e\u0449\u0435\u043c\u0443 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0441\u0438\u043b\u0430\u00bb \u043d\u0430 3  \u0445\u043e\u0434\u0430\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u0441\u0442\u0440\u0435\u043b\u043a\u0438 \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438 \n\u0431\u043e\u0435\u0432\u044b\u0435 \u043c\u0430\u0433\u0438 \n\u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "80 80",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u044b\u043b\u0430\u044e\u0449\u0435\u0435 \u0441\u0435\u0440\u0434\u0446\u0435",
+              desc: "\u0421\u0435\u0440\u0434\u0446\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u043d\u0430\u0440\u043e\u0434\u0430 \u043f\u044b\u043b\u0430\u044e\u0442 \u043e\u0433\u043d\u0451\u043c, \u0447\u0442\u043e \u0434\u0430\u0451\u0442 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438:\n+2 \u043a  \u0437\u0430\u0449\u0438\u0442\u0435 \u043e\u0442 \u043e\u0433\u043d\u044f\n+10% \u043a \u0448\u0430\u043d\u0441\u0443 \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0443\u0434\u0430\u0440\u0430\n\u043d\u0435\u0432\u043e\u0441\u043f\u0440\u0438\u0438\u043c\u0447\u0438\u0432\u043e\u0441\u0442\u044c \u043a \u043e\u0433\u043d\u0435\u043d\u043d\u044b\u043c \u043e\u043f\u0430\u0441\u043d\u044b\u043c \u0437\u043e\u043d\u0430\u043c",
+              type: "\u041d\u0435\u0437\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
+              cost: "250 250",
+              level: "\u042d\u043a\u0441\u043f\u0435\u0440\u0442",
             },
           ],
         },
@@ -3764,29 +3904,122 @@
               name: "\u0424\u0430\u0439\u043b:Lieutenat4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u041b\u0435\u0439\u0442\u0435\u043d\u0430\u043d\u0442",
               desc: "\u0411\u043e\u0435\u0446, \u0447\u044c\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0432 \u0431\u043e\u044e \u043f\u0440\u0438\u0434\u0430\u044e\u0442 \u0441\u043e\u0440\u0430\u0442\u043d\u0438\u043a\u0430\u043c \u0441\u0438\u043b.",
               type: "\u041d\u0430\u0439\u043c",
-              cost: "",
-              level: "100 120",
+              cost: "100 120",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
               name: "\u041f\u0440\u0438\u0437\u044b\u0432 \u043a\u043e\u043c\u0430\u043d\u0434\u0438\u0440\u0430",
               desc: "\u0414\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 1 \u0433\u0435\u043a\u0441:\n\u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u044e\u0442 15  \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f\n \u0431\u043e\u0435\u0432\u043e\u0439 \u0434\u0443\u0445 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u043d\u0430 15",
               type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0443\u0441\u0438\u043b\u0435\u043d\u0438\u044f",
-              cost: "",
-              level: "15 20",
+              cost: "15 20",
+              level: "\u0410\u0434\u0435\u043f\u0442",
             },
             {
               name: "\u0421\u0443\u0440\u043e\u0432\u0430\u044f \u043c\u0443\u0448\u0442\u0440\u0430",
               desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043f\u0440\u0438\u043d\u0430\u0434\u043b\u0435\u0436\u0430\u0449\u0438\u0439 \u0432\u0430\u043c \u0433\u043e\u0440\u043e\u0434:\n\u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 40  \u043d\u0430\u0439\u043c\u0430",
               type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0443\u0440\u043e\u043d\u0430",
-              cost: "",
-              level: "45 45",
+              cost: "45 45",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
               name: "\u041f\u0440\u0438\u0440\u043e\u0436\u0434\u0451\u043d\u043d\u044b\u0435 \u0432\u043e\u0438\u043d\u044b",
               desc: "\u0422\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \u0441\u0442\u0430\u043d\u043e\u0432\u044f\u0442\u0441\u044f \u0431\u043e\u043b\u0435\u0435 \u0441\u0438\u043b\u044c\u043d\u044b\u043c\u0438 \u0438 \u0433\u043e\u0442\u043e\u0432\u044b\u043c\u0438 \u043a \u0431\u043e\u044e:\n+10  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f\n\u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043e\u0442\u0435\u0440\u0435  \u0431\u043e\u0435\u0432\u043e\u0433\u043e \u0434\u0443\u0445\u0430 \u043f\u043e\u0432\u044b\u0448\u0430\u0435\u0442\u0441\u044f \u043d\u0430 10%, \u043f\u043b\u044e\u0441 10% \u0437\u0430 \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u044e\u043d\u0438\u0442\u0430 \u043f\u043e \u0441\u043e\u0441\u0435\u0434\u0441\u0442\u0432\u0443",
               type: "\u041d\u0435\u0437\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
-              cost: "",
-              level: "150 150",
+              cost: "150 150",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
+        {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u043e\u0442\u0440\u0435\u0447\u0435\u043d\u0438\u044f\ud83e\uddd9",
+          rang: "1",
+          elems: [1, 0, 1, 0, 0, 0],
+          icon: "icons\\Tome_of_Abjuration_HaVs.webp",
+          tome_data: [
+            {
+              name: "\u041f\u0440\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u043a\u043b\u044f\u0442\u0438\u044f",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u044e\u043d\u0438\u0442:\n\u0438\u0437\u0431\u0430\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043e\u0442 \u0432\u0441\u0435\u0445 \u043e\u0442\u0440\u0438\u0446\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u044d\u0444\u0444\u0435\u043a\u0442\u043e\u0432\n\u0435\u0441\u043b\u0438 \u0443 \u0441\u043d\u044f\u0442\u043e\u0433\u043e \u044d\u0444\u0444\u0435\u043a\u0442\u0430 \u0435\u0441\u0442\u044c \u043f\u043e\u043b\u043e\u0436\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0442\u0438\u0432\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0439 \u044d\u0444\u0444\u0435\u043a\u0442, \u043e\u043d \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f \u043a \u044e\u043d\u0438\u0442\u0443",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0443\u0441\u0438\u043b\u0435\u043d\u0438\u044f",
+              cost: "10 15",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0413\u043e\u0440\u043e\u0434\u0441\u043a\u0438\u0435 \u043e\u0431\u0435\u0440\u0435\u0433\u0438",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043f\u0440\u0438\u043d\u0430\u0434\u043b\u0435\u0436\u0430\u0449\u0438\u0439 \u0432\u0430\u043c \u0433\u043e\u0440\u043e\u0434 \u0438\u043b\u0438 \u043d\u0435\u0432\u0440\u0430\u0436\u0434\u0435\u0431\u043d\u044b\u0439 \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0439 \u0433\u043e\u0440\u043e\u0434 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442:\n+10 \u043a  \u0441\u0442\u0430\u0431\u0438\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0433\u043e\u0440\u043e\u0434\u0430\n+10 \u043a  \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u044e \u0443\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u0439, \u0435\u0441\u043b\u0438 \u043d\u0435 \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043f\u043e\u0434 \u043e\u0441\u0430\u0434\u043e\u0439.\n\u0415\u0441\u043b\u0438 \u0446\u0435\u043b\u044c\u044e \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0439 \u0433\u043e\u0440\u043e\u0434 \u0441  \u0448\u0435\u043f\u0447\u0443\u0449\u0438\u043c \u043a\u0430\u043c\u043d\u0435\u043c, \u043e\u043d \u0442\u0430\u043a\u0436\u0435 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 +2 \u043a  \u0431\u043b\u0430\u0433\u043e\u0441\u043a\u043b\u043e\u043d\u043d\u043e\u0441\u0442\u0438 \u0437\u0430 \u0445\u043e\u0434",
+              type: "\u041f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u043e\u0435 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0434\u043b\u044f \u0433\u043e\u0440\u043e\u0434\u0430",
+              cost: "45 45",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0424\u0430\u0439\u043b:Abjure Pylon4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u041f\u0440\u0438\u0437\u044b\u0432 \u043f\u0438\u043b\u043e\u043d\u0430 \u043e\u0442\u0440\u0435\u0447\u0435\u043d\u0438\u044f",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0433\u0435\u043a\u0441 \u043f\u0438\u043b\u043e\u043d \u043e\u0442\u0440\u0435\u0447\u0435\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0437\u0430\u0449\u0438\u0449\u0430\u0435\u0442 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u044e\u043d\u0438\u0442\u043e\u0432 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u0438 \u00ab\u0412\u043e\u043b\u0448\u0435\u0431\u043d\u044b\u0439 \u0449\u0438\u0442\u00bb\n\u041f\u0440\u0438\u0437\u0432\u0430\u043d\u043d\u044b\u0439 \u044e\u043d\u0438\u0442 \u043e\u0441\u0442\u0430\u0451\u0442\u0441\u044f \u0432 \u0431\u043e\u044e \u043d\u0430 3  \u0445\u043e\u0434f",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430 \u0434\u043b\u044f \u0431\u0438\u0442\u0432\u044b",
+              cost: "15 20",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041e\u0442\u0440\u0435\u0447\u0435\u043d\u0438\u0435 \u043e\u0442 \u043d\u0430\u0441\u0438\u043b\u0438\u044f",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0432\u0440\u0430\u0436\u0435\u0441\u043a\u0438\u0439 \u044e\u043d\u0438\u0442:\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 120% \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0423\u043c\u0438\u0440\u043e\u0442\u0432\u043e\u0440\u0435\u043d\u0438\u0435\u00bb \u043d\u0430 1  \u0445\u043e\u0434\n\u0447\u0435\u043c \u043c\u0435\u043d\u044c\u0448\u0435 \u0437\u0430\u043f\u0430\u0441  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f \u0446\u0435\u043b\u0438, \u0442\u0435\u043c \u043d\u0438\u0436\u0435 \u044d\u0442\u0430 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
+              cost: "10 15",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0411\u0440\u043e\u043d\u044f \u043c\u0430\u0433\u0430",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n+2 \u043a  \u0437\u0430\u0449\u0438\u0442\u0435\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438 \n\u0431\u043e\u0435\u0432\u044b\u0435 \u043c\u0430\u0433\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "70 70",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0413\u043b\u0438\u0444\u044b \u043e\u0442\u0440\u0435\u0447\u0435\u043d\u0438\u044f",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0411\u043e\u0435\u0432\u044b\u0435 \u0449\u0438\u0442\u044b\u00bb, \u043a\u043e\u0442\u043e\u0440\u0430\u044f \u0434\u0430\u0451\u0442 \u044e\u043d\u0438\u0442\u0443 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041f\u0440\u0435\u0434\u0432\u0438\u0434\u0435\u043d\u0438\u0435\u00bb, \u043a\u043e\u0433\u0434\u0430 \u0437\u0430\u043f\u0430\u0441 \u0435\u0433\u043e  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f \u043f\u0430\u0434\u0430\u0435\u0442 \u0434\u043e 60% \u0438 30%\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u0441\u0442\u0440\u0435\u043b\u043a\u0438 \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "70 70",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
+        {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u0441\u043f\u0440\u0430\u0439\u0442\u0430\ud83e\uddd9",
+          rang: "1",
+          elems: [1, 0, 0, 1, 0, 0],
+          icon: "icons\\Tome_of_the_Sprite_fvMP.webp",
+          tome_data: [
+            {
+              name: "\u041f\u0440\u0438\u0437\u044b\u0432 \u0441\u043f\u0440\u0430\u0439\u0442\u0430",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u0443\u0442\u0440\u0435\u043d\u043d\u0435\u0433\u043e \u0441\u043f\u0440\u0430\u0439\u0442\u0430 (\u044e\u043d\u0438\u0442 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438) \u0438\u043b\u0438 \u0432\u0435\u0447\u0435\u0440\u043d\u0435\u0433\u043e \u0441\u043f\u0440\u0430\u0439\u0442\u0430 (\u0431\u043e\u0435\u0432\u043e\u0439 \u043c\u0430\u0433)",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430",
+              cost: "60 60",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0417\u0430\u0432\u043e\u0440\u0430\u0436\u0438\u0432\u0430\u044e\u0449\u0438\u0435 \u043e\u0433\u043e\u043d\u044c\u043a\u0438",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0432\u0440\u0430\u0436\u0435\u0441\u043a\u0438\u0439 \u044e\u043d\u0438\u0442:\n\u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0420\u0430\u0441\u0441\u0435\u044f\u043d\u043d\u044b\u0439\u00bb \u043d\u0430 1  \u0445\u043e\u0434\n\u0442\u0435\u0440\u044f\u0435\u0442 \u0437\u0430\u0449\u0438\u0442\u043d\u0443\u044e \u043f\u043e\u0437\u0438\u0446\u0438\u044e\n\u043b\u0438\u0448\u0430\u0435\u0442\u0441\u044f \u043e\u0442\u0432\u0435\u0442\u043d\u044b\u0445 \u0443\u0434\u0430\u0440\u043e\u0432",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
+              cost: "15 20",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0416\u0438\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u0441\u043e\u043d",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u0430\u044f \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0430\u044f \u0430\u0440\u043c\u0438\u044f \u0442\u0435\u0440\u044f\u0435\u0442 \u0432\u0441\u0435 \u043e\u0447\u043a\u0438 \u043f\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u0438 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0435\u0442 \u043f\u043e 1  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f \u0437\u0430 \u043a\u0430\u0436\u0434\u043e\u0435 \u043f\u043e\u0442\u0435\u0440\u044f\u043d\u043d\u043e\u0435 \u043e\u0447\u043a\u043e",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0434\u043b\u044f \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u0430\u0440\u043c\u0438\u0438",
+              cost: "30 30",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u0421\u0432\u044f\u0437\u044c \u0444\u0435\u0439",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440:\n\u0432 \u043d\u0430\u0447\u0430\u043b\u0435 \u0431\u043e\u044f \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 +10 \u043a  \u0431\u043e\u0435\u0432\u043e\u043c\u0443 \u0434\u0443\u0445\u0443\n\u043f\u0440\u0438 \u043d\u0435\u0439\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u043c \u0431\u043e\u0435\u0432\u043e\u043c \u0434\u0443\u0445\u0435 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 +2 \u043a  \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044e \u044d\u0444\u0444\u0435\u043a\u0442\u0430\u043c\n\u043f\u0440\u0438 \u0432\u044b\u0441\u043e\u043a\u043e\u043c \u0431\u043e\u0435\u0432\u043e\u043c \u0434\u0443\u0445\u0435 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 +4 \u043a  \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044e \u044d\u0444\u0444\u0435\u043a\u0442\u0430\u043c\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0431\u043e\u0439\u0446\u044b \n\u0441\u0442\u0440\u0435\u043b\u043a\u0438 \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438 \n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438 \n\u0431\u043e\u0435\u0432\u044b\u0435 \u043c\u0430\u0433\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "70 70",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u044b\u043b\u044c\u0446\u0430 \u0444\u0435\u0439",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u041f\u044b\u043b\u044c\u0446\u0430 \u0444\u0435\u0439\u00bb[1]\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438 \n\u0431\u043e\u0435\u0432\u044b\u0435 \u043c\u0430\u0433\u0438",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "70 70",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
           ],
         },
@@ -3965,43 +4198,50 @@
         {
           tome: "\u041a\u043d\u0438\u0433\u0430 \u0434\u0440\u0430\u043a\u043e\u043d\u043e\u0432\ud83d\udc09",
           rang: "3",
-          elems: [0, 1, 0, 1, 0, 0],
-          icon: "icons\\Tome_of_the_Sand_Stalkers.webp",
+          elems: [0, 0, 0, 1, 0, 1],
+          icon: "icons\\Tome_of_Dragons.webp",
           tome_data: [
             {
-              name: "\u0414\u044e\u043d\u043d\u044b\u0435 \u043b\u043e\u0432\u0447\u0438\u0435",
-              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043d\u0430\u0440\u043e\u0434 \u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u0441\u044f \u0435\u0434\u0438\u043d \u0441 \u043f\u0443\u0441\u0442\u044b\u043d\u0435\u0439 \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430:\n\u00ab\u0425\u043e\u0434\u044c\u0431\u0430 \u043f\u043e \u043f\u0435\u0441\u043a\u0443\u00bb\n\u00ab\u041f\u0435\u0441\u0447\u0430\u043d\u044b\u0439 \u043a\u0430\u043c\u0443\u0444\u043b\u044f\u0436\u00bb\n\u0415\u0441\u043b\u0438 \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043d\u0430 \u043f\u0435\u0441\u0447\u0430\u043d\u043e\u043c \u043b\u0430\u043d\u0434\u0448\u0430\u0444\u0442\u0435:\n\u043e\u0447\u0435\u043d\u044c \u0432\u044b\u0441\u043e\u043a\u0430\u044f \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432 \u0431\u043e\u044e\n+20% \u043a \u0443\u0440\u043e\u043d\u0443 \u043f\u0440\u0438  \u0430\u0442\u0430\u043a\u0430\u0445 \u0441 \u0444\u043b\u0430\u043d\u0433\u0430",
-              type: "\u041d\u0435\u0437\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
-              cost: "250 250",
-              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
-            },
-            {
-              name: "\u041e\u043f\u0443\u0441\u0442\u044b\u043d\u0438\u0432\u0430\u043d\u0438\u0435",
-              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u0430\u044f \u043f\u0440\u043e\u0432\u0438\u043d\u0446\u0438\u044f \u043d\u0430 \u043f\u043e\u0432\u0435\u0440\u0445\u043d\u043e\u0441\u0442\u0438 \u0438 \u043f\u0440\u043e\u0432\u0438\u043d\u0446\u0438\u0438 \u043f\u043e \u0441\u043e\u0441\u0435\u0434\u0441\u0442\u0432\u0443:\n\u0432 \u043f\u0440\u043e\u0432\u0438\u043d\u0446\u0438\u044f\u0445 \u043f\u043e\u044f\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u043f\u0435\u0441\u043a\u0438\n\u043f\u0440\u043e\u0432\u0438\u043d\u0446\u0438\u0438 \u0442\u0435\u0440\u044f\u044e\u0442 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043b\u0430\u043d\u0434\u0448\u0430\u0444\u0442\u0430 \u00ab\u041f\u0440\u043e\u043f\u0430\u0441\u0442\u044c\u00bb, \u00ab\u0411\u043e\u043b\u043e\u0442\u043e\u00bb, \u00ab\u0421\u043d\u0435\u0433\u00bb, \u00ab\u041b\u0451\u0434\u00bb, \u00ab\u041f\u0435\u043f\u0435\u043b\u0438\u0449\u0435\u00bb \u0438 \u00ab\u041c\u0433\u043b\u0430\u00bb.",
-              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0434\u043b\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043b\u0430\u043d\u0434\u0448\u0430\u0444\u0442\u0430",
-              cost: "45 45",
-              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
-            },
-            {
-              name: "\u041a\u043b\u0438\u043d\u043a\u0438 \u0441\u043a\u043e\u0440\u043f\u0438\u043e\u043d\u044c\u0435\u0433\u043e \u044f\u0434\u0430",
-              desc: "\u0410\u0442\u0430\u043a\u0438 \u044e\u043d\u0438\u0442\u043e\u0432 \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u0432 \u0431\u043b\u0438\u0436\u043d\u0435\u043c \u0431\u043e\u044e:\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 60% \u043c\u043e\u0433\u0443\u0442 \u043d\u0430 3  \u0445\u043e\u0434\u0430 \u043d\u0430\u043b\u043e\u0436\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0421\u043b\u0430\u0431\u043e\u0441\u0442\u044c\u00bb\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 60% \u043c\u043e\u0433\u0443\u0442 \u043d\u0430 3  \u0445\u043e\u0434\u0430 \u043d\u0430\u043b\u043e\u0436\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041e\u0442\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435\u00bb\n+2  \u0443\u0440\u043e\u043d\u0430 \u044f\u0434\u043e\u043c \u043f\u0440\u0438 \u0430\u0442\u0430\u043a\u0435 \u0441 \u0444\u043b\u0430\u043d\u0433\u0430\n\u042d\u0444\u0444\u0435\u043a\u0442\u044b \u0443\u0441\u0438\u043b\u0438\u0432\u0430\u044e\u0442\u0441\u044f \u0434\u043b\u044f \u043e\u0434\u043d\u043e\u043a\u0440\u0430\u0442\u043d\u044b\u0445 \u0430\u0442\u0430\u043a.\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u0431\u043e\u0439\u0446\u044b \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438",
+              name: "\u0423\u0441\u0438\u043b\u0435\u043d\u0438\u0435: \u0443\u0434\u0430\u0440 \u0434\u0440\u0430\u043a\u043e\u043d\u0430",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0423\u0434\u0430\u0440 \u0434\u0440\u0430\u043a\u043e\u043d\u0430\u00bb[1]\n\u0442\u0438\u043f \u0443\u0440\u043e\u043d\u0430 \u0437\u0430\u0432\u0438\u0441\u0438\u0442 \u043e\u0442 \u0434\u043e\u043c\u0438\u043d\u0430\u043d\u0442\u043d\u043e\u0439 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u0432\u0430\u0448\u0435\u0439 \u0438\u043c\u043f\u0435\u0440\u0438\u0438, \u0430 \u0435\u0433\u043e \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0440\u0430\u0441\u0442\u0451\u0442 \u0441 \u0443\u0440\u043e\u0432\u043d\u0435\u043c \u044e\u043d\u0438\u0442\u0430\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u0431\u043e\u0439\u0446\u044b \n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
               type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
-              cost: "90 90",
+              cost: "100 100",
               level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
-              name: "\u041f\u0435\u0441\u0447\u0430\u043d\u0430\u044f \u0431\u0443\u0440\u044f",
-              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043f\u0435\u0441\u0447\u0430\u043d\u0443\u044e \u0431\u0443\u0440\u044e \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u043e\u043c 2 \u0433\u0435\u043a\u0441\u0430. \u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0430\u0435\u0442\u0441\u044f \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 3  \u0445\u043e\u0434\u043e\u0432.",
-              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
-              cost: "20 25",
+              name: "\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043f\u043b\u0430\u043c\u044f",
+              desc: "\u0414\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 1 \u0433\u0435\u043a\u0441:\n\u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u044e\u0442 25  \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f\n\u0438\u0437\u0431\u0430\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u043e\u0442 \u0432\u0441\u0435\u0445 \u043e\u0442\u0440\u0438\u0446\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u044d\u0444\u0444\u0435\u043a\u0442\u043e\u0432",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0438\u0441\u0446\u0435\u043b\u0435\u043d\u0438\u044f",
+              cost: "80 35",
               level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
             },
             {
-              name: "\u0424\u0430\u0439\u043b:Sand Scorpion 4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u041f\u0440\u0438\u0437\u044b\u0432 \u043f\u0435\u0441\u0447\u0430\u043d\u043e\u0433\u043e \u0441\u043a\u043e\u0440\u043f\u0438\u043e\u043d\u0430",
-              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043f\u0435\u0441\u0447\u0430\u043d\u043e\u0433\u043e \u0441\u043a\u043e\u0440\u043f\u0438\u043e\u043d\u0430 \u2014 \u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043e\u0441\u043b\u0430\u0431\u043b\u044f\u0435\u0442 \u0432\u0440\u0430\u0433\u043e\u0432 \u044f\u0434\u043e\u043c.",
+              name: "\u041d\u0430\u043b\u0451\u0442 \u0434\u0440\u0430\u043a\u043e\u043d\u043e\u0432",
+              desc: "\u0412 \u043d\u0430\u0447\u0430\u043b\u0435 \u0431\u043e\u044f:\n\u0437\u0430\u0449\u0438\u0442\u043d\u0438\u043a\u0438 \u0433\u043e\u0440\u043e\u0434\u0430 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 26  \u0443\u0440\u043e\u043d\u0430 \u043e\u0433\u043d\u0451\u043c\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 120% \u043a \u0437\u0430\u0449\u0438\u0442\u043d\u0438\u043a\u0430\u043c \u0433\u043e\u0440\u043e\u0434\u0430 \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0413\u043e\u0440\u0435\u043d\u0438\u0435\u00bb\n\u0434\u043e\u0431\u0430\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u043f\u043e\u0436\u0430\u0440\u044b \u0432 \u0441\u043b\u0443\u0447\u0430\u0439\u043d\u044b\u0445 \u043c\u0435\u0441\u0442\u0430\u0445\n\u0431\u043e\u043b\u044c\u0448\u0438\u043d\u0441\u0442\u0432\u043e \u0443\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u0439 \u0431\u0443\u0434\u0435\u0442 \u043e\u0445\u0432\u0430\u0447\u0435\u043d\u043e \u043e\u0433\u043d\u0451\u043c\n5  \u0443\u0440\u043e\u043d\u0430 \u0443\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u044f\u043c",
+              type: "\u041e\u0441\u0430\u0434\u043d\u044b\u0439 \u043f\u0440\u043e\u0435\u043a\u0442",
+              cost: "100",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0423\u0441\u0438\u043b\u0435\u043d\u0438\u0435 \u0434\u0440\u0430\u043a\u043e\u043d\u043e\u0432",
+              desc: "\u0415\u0441\u043b\u0438 \u044e\u043d\u0438\u0442-\u0434\u0440\u0430\u043a\u043e\u043d \u043d\u0435 \u043f\u0440\u0438\u043d\u0430\u0434\u043b\u0435\u0436\u0438\u0442 \u043d\u0438 \u043a \u043e\u0434\u043d\u043e\u043c\u0443 \u043d\u0430\u0440\u043e\u0434\u0443, \u0435\u0433\u043e \u0440\u0430\u043d\u0433 \u043c\u043e\u0436\u043d\u043e \u043f\u043e\u0432\u044b\u0441\u0438\u0442\u044c, \u043e\u0431\u043c\u0435\u043d\u044f\u0432  \u0437\u043e\u043b\u043e\u0442\u043e \u043d\u0430 \u043e\u043f\u044b\u0442[2].",
+              type: "\u0411\u043e\u043d\u0443\u0441 \u0438\u043c\u043f\u0435\u0440\u0438\u0438",
+              cost: "",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0440\u0435\u0432\u0440\u0430\u0449\u0435\u043d\u0438\u0435 \u0432 \u0434\u0440\u0430\u043a\u043e\u043d\u0438\u0434\u043e\u0432",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043d\u0430\u0440\u043e\u0434 \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044f \u0432 \u0434\u0440\u0430\u043a\u043e\u043d\u0438\u0434\u043e\u0432 \u0441\u043e \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u043c\u0438 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u044f\u043c\u0438:\n\u0442\u0438\u043f \u00ab\u0414\u0440\u0430\u043a\u043e\u043d\u00bb\n+10  \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0415\u0441\u0442\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0430\u044f \u0440\u0435\u0433\u0435\u043d\u0435\u0440\u0430\u0446\u0438\u044f\u00bb, \u043f\u043e\u043c\u043e\u0433\u0430\u044e\u0449\u0430\u044f \u0431\u044b\u0441\u0442\u0440\u0435\u0435 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0442\u044c \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435",
+              type: "\u0417\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
+              cost: "600 600",
+              level: "\u042d\u043a\u0441\u043f\u0435\u0440\u0442",
+            },
+            {
+              name: "\u0412\u044b\u0437\u043e\u0432 \u044e\u043d\u043e\u0433\u043e \u0434\u0440\u0430\u043a\u043e\u043d\u0430",
+              desc: "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u044e\u043d\u043e\u0433\u043e \u0434\u0440\u0430\u043a\u043e\u043d\u0430 III \u0443\u0440\u043e\u0432\u043d\u044f, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043f\u0440\u0438\u0441\u043e\u0435\u0434\u0438\u043d\u0438\u0442\u0441\u044f \u043a \u0432\u0430\u0448\u0435\u0439 \u0430\u0440\u043c\u0438\u0438:\n\u042e\u043d\u044b\u0439 \u043e\u0433\u043d\u0435\u043d\u043d\u044b\u0439 \u0434\u0440\u0430\u043a\u043e\u043d\n\u042e\u043d\u044b\u0439 \u043c\u043e\u0440\u043e\u0437\u043d\u044b\u0439 \u0434\u0440\u0430\u043a\u043e\u043d\n\u042e\u043d\u044b\u0439 \u043e\u0431\u0441\u0438\u0434\u0438\u0430\u043d\u043e\u0432\u044b\u0439 \u0434\u0440\u0430\u043a\u043e\u043d\n\u042e\u043d\u044b\u0439 \u0437\u043e\u043b\u043e\u0442\u043e\u0439 \u0434\u0440\u0430\u043a\u043e\u043d\n\u0411\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u044f \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u0438 \u00ab\u0420\u0430\u0437\u0432\u0438\u0442\u0438\u0435\u00bb \u044d\u0442\u0438 \u044e\u043d\u0438\u0442\u044b \u043c\u043e\u0433\u0443\u0442 \u0432\u044b\u0440\u0430\u0441\u0442\u0438 \u0432\u043e \u0432\u0437\u0440\u043e\u0441\u043b\u044b\u0445 \u0434\u0440\u0430\u043a\u043e\u043d\u043e\u0432.",
               type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430",
               cost: "150 150",
-              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+              level: "\u0410\u0434\u0435\u043f\u0442",
             },
           ],
         },
@@ -4238,6 +4478,49 @@
               type: "\u041e\u0441\u0430\u0434\u043d\u044b\u0439 \u043f\u0440\u043e\u0435\u043a\u0442",
               cost: "70",
               level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
+        {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u0442\u043a\u0430\u0447\u0438\u0445\u0438\ud83e\uddd9",
+          rang: "3",
+          elems: [0, 0, 0, 1, 1, 0],
+          icon: "icons\\Tome_of_the_Weaver_iP3U.webp",
+          tome_data: [
+            {
+              name: "\u0421\u043a\u043e\u0432\u044b\u0432\u0430\u044e\u0449\u0438\u0439 \u0443\u0436\u0430\u0441",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 2 \u0433\u0435\u043a\u0441\u044b:\n\u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 90% \u043c\u043e\u0433\u0443\u0442 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041e\u0431\u0435\u0437\u0434\u0432\u0438\u0436\u0435\u043d\u00bb \u043d\u0430 1  \u0445\u043e\u0434\n\u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u0421\u043e\u0436\u0430\u043b\u0435\u043d\u0438\u0435\u00bb (2) \u043d\u0430 3  \u0445\u043e\u0434\u0430",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043e\u0441\u043b\u0430\u0431\u043b\u0435\u043d\u0438\u044f",
+              cost: "80 35",
+              level: "\u0410\u0434\u0435\u043f\u0442",
+            },
+            {
+              name: "\u041b\u043e\u0432\u0447\u0438\u0435 \u0443\u0436\u0430\u0441\u0430",
+              desc: "\u042e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0421\u0435\u044f\u0442\u0435\u043b\u044c \u043e\u0442\u0447\u0430\u044f\u043d\u0438\u044f\u00bb\n+20% \u043a \u0443\u0440\u043e\u043d\u0443 \u043f\u0440\u043e\u0442\u0438\u0432 \u0446\u0435\u043b\u0435\u0439 \u043f\u043e\u0434 \u0432\u043e\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u044d\u0444\u0444\u0435\u043a\u0442\u043e\u0432 \u00ab\u041e\u0431\u0435\u0437\u0434\u0432\u0438\u0436\u0435\u043d\u00bb \u0438\u043b\u0438 \u00ab\u0417\u0430\u043c\u043e\u0440\u043e\u0436\u0435\u043d\u00bb.\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u0416\u0438\u0432\u043e\u0442\u043d\u044b\u0435 \n\u041f\u0430\u0443\u043a\u0438",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "120 120",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0440\u0438\u0437\u044b\u0432 \u043f\u0430\u0443\u043a\u043e\u0432-\u043f\u0440\u044f\u0434\u0438\u043b\u044c\u0449\u0438\u043a\u043e\u0432",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u0443\u044e \u0438 \u0441\u043e\u0441\u0435\u0434\u043d\u0438\u0439 \u0433\u0435\u043a\u0441\u044b \u043f\u0430\u0443\u043a\u043e\u0432-\u043f\u0440\u044f\u0434\u0438\u043b\u044c\u0449\u0438\u043a\u043e\u0432 (2)\u041f\u0440\u0438\u0437\u0432\u0430\u043d\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0432 \u0431\u043e\u044e \u043d\u0430 3  \u0445\u043e\u0434\u0430",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430 \u0434\u043b\u044f \u0431\u0438\u0442\u0432\u044b",
+              cost: "45 30",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u0424\u0430\u0439\u043b:Priest of the Weave4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u0416\u0440\u0438\u0446\u0430 \u043f\u043b\u0435\u0442\u0435\u043d\u0438\u044f",
+              desc: "\u042e\u043d\u0438\u0442 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438, \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u044b\u0439 \u0432\u043e\u0437\u0440\u043e\u0436\u0434\u0430\u0442\u044c \u043c\u0451\u0440\u0442\u0432\u044b\u0445 \u044e\u043d\u0438\u0442\u043e\u0432 \u0432 \u043f\u0430\u0443\u043a\u043e\u0432, \u0430 \n\u0442\u0430\u043a\u0436\u0435 \u0441\u043d\u0438\u043c\u0430\u0442\u044c \u0441 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u044e\u043d\u0438\u0442\u043e\u0432 \u043e\u0442\u0440\u0438\u0446\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u044d\u0444\u0444\u0435\u043a\u0442\u044b \u0438 \u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \n\u0438\u0445 \u0432\u0440\u0430\u0433\u0430\u043c.",
+              type: "\u041d\u0430\u0439\u043c",
+              cost: "200 300",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0430\u0443\u0447\u044c\u0438 \u043e\u0431\u044a\u044f\u0442\u0438\u044f",
+              desc: "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u043d\u0430\u0440\u043e\u0434 \u0441\u043b\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0441 \u043f\u0430\u0443\u043a\u0430\u043c\u0438 \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438:\n\u0442\u0438\u043f \u00ab\u041f\u0430\u0443\u043a\u00bb\n\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u00ab\u0412\u044b\u0441\u043e\u043a\u0430\u044f \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c\u00bb\n\u0431\u0430\u0437\u043e\u0432\u044b\u0435 \u0430\u0442\u0430\u043a\u0438 \u044e\u043d\u0438\u0442\u043e\u0432 \u0441 \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c\u044e 30% \u043c\u043e\u0433\u0443\u0442 \u043d\u0430\u043b\u043e\u0436\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442 \u00ab\u041e\u0431\u0435\u0437\u0434\u0432\u0438\u0436\u0435\u043d\u00bb \u043d\u0430 1  \u0445\u043e\u0434\u0414\u043b\u044f \u043e\u0434\u043d\u043e\u043a\u0440\u0430\u0442\u043d\u044b\u0445 \u0430\u0442\u0430\u043a \u0432\u0435\u0440\u043e\u044f\u0442\u043d\u043e\u0441\u0442\u044c \u043f\u043e\u0432\u044b\u0448\u0430\u0435\u0442\u0441\u044f\n\u0412\u0441\u0430\u0434\u043d\u0438\u043a\u0438 \u043b\u0438\u0448\u0430\u044e\u0442\u0441\u044f \u0435\u0437\u0434\u043e\u0432\u044b\u0445 \u0436\u0438\u0432\u043e\u0442\u043d\u044b\u0445\n\u0413\u0435\u0440\u043e\u0438 \u0443\u0442\u0440\u0430\u0447\u0438\u0432\u0430\u044e\u0442 \u044f\u0447\u0435\u0439\u043a\u0438 \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f \u0434\u043b\u044f \u043d\u043e\u0433 \u0438 \u0435\u0437\u0434\u043e\u0432\u043e\u0433\u043e \u0436\u0438\u0432\u043e\u0442\u043d\u043e\u0433\u043e",
+              type: "\u0417\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043d\u0430\u0440\u043e\u0434\u0430",
+              cost: "600 600",
+              level: "\u042d\u043a\u0441\u043f\u0435\u0440\u0442",
             },
           ],
         },
@@ -4520,6 +4803,35 @@
             },
           ],
         },
+        {
+          tome: "\u041a\u043d\u0438\u0433\u0430 \u043a\u043e\u0441\u043c\u043e\u0441\u0430\ud83e\uddd9",
+          rang: "5",
+          elems: [1, 1, 1, 1, 1, 1],
+          icon: "icons\\Tome_of_the_Cosmos_UHFP.webp",
+          tome_data: [
+            {
+              name: "\u0424\u0430\u0439\u043b:Avatar of the Cosmos4-\u0438\u043a\u043e\u043d\u043a\u0430.png \u041f\u0440\u0438\u0437\u044b\u0432 \u0430\u0432\u0430\u0442\u0430\u0440\u0430 \u043a\u043e\u0441\u043c\u043e\u0441\u0430",
+              desc: "\u041f\u0440\u0438\u0437\u044b\u0432\u0430\u0435\u0442 \u0430\u0432\u0430\u0442\u0430\u0440 \u043a\u043e\u0441\u043c\u043e\u0441\u0430 \u2014 \u043c\u0438\u0444\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0443\u0441\u0438\u043b\u0435\u043d\u0438\u044f \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u0438 \u043e\u0442 \u0432\u0430\u0448\u0438\u0445 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u0435\u0439.",
+              type: "\u0417\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0437\u044b\u0432\u0430",
+              cost: "300 300",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0440\u043e\u0431\u0443\u0436\u0434\u0435\u043d\u0438\u0435 \u043a\u043e\u0441\u043c\u043e\u0441\u0430",
+              desc: "\u0417\u0430 \u043a\u0430\u0436\u0434\u0443\u044e \u0432\u0430\u0448\u0443 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c, \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u0432\u044b\u0448\u0435 \u0438\u043b\u0438 \u0440\u0430\u0432\u0435\u043d 5, \u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435\u043c \u0447\u0430\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442:\n+1 \u043a \u0443\u0440\u043e\u043d\u0443 \u0442\u043e\u0433\u043e \u0442\u0438\u043f\u0430, \u043a\u043e\u0442\u043e\u0440\u043e\u043c\u0443 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c\n+1 \u043a \u0437\u0430\u0449\u0438\u0442\u0435 \u043e\u0442 \u0443\u0440\u043e\u043d\u0430 \u0442\u043e\u0433\u043e \u0442\u0438\u043f\u0430, \u043a\u043e\u0442\u043e\u0440\u043e\u043c\u0443 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c\n\u042d\u0444\u0444\u0435\u043a\u0442\u044b \u0443\u0441\u0438\u043b\u0438\u0432\u0430\u044e\u0442\u0441\u044f \u0434\u043b\u044f \u043e\u0434\u043d\u043e\u043a\u0440\u0430\u0442\u043d\u044b\u0445 \u0430\u0442\u0430\u043a.\n\n\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442 \u043d\u0430:\n\n\u043a\u043e\u043f\u0435\u0439\u0449\u0438\u043a\u0438 \n\u0431\u043e\u0439\u0446\u044b \n\u0441\u0442\u0440\u0435\u043b\u043a\u0438 \n\u0437\u0430\u0441\u0442\u0440\u0435\u043b\u044c\u0449\u0438\u043a\u0438 \n\u0449\u0438\u0442\u043e\u043d\u043e\u0441\u0446\u044b \n\u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u044e\u043d\u0438\u0442\u044b \n\u044e\u043d\u0438\u0442\u044b \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438 \n\u0431\u043e\u0435\u0432\u044b\u0435 \u043c\u0430\u0433\u0438 \n\u043c\u0430\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0431\u043e\u0439\u0446\u044b",
+              type: "\u0427\u0430\u0440\u044b \u0434\u043b\u044f \u044e\u043d\u0438\u0442\u043e\u0432",
+              cost: "250 250",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+            {
+              name: "\u041f\u0440\u0438\u0437\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u0430\u0448\u043d\u044f",
+              desc: "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0432\u0441\u044e \u043a\u0430\u0440\u0442\u0443\n+25 \u043a  \u043e\u0447\u043a\u0430\u043c \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0445 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0439\n+25 \u043a  \u043e\u0447\u043a\u0430\u043c \u0431\u043e\u0435\u0432\u044b\u0445 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0439\n\u0437\u0430 \u043a\u0430\u0436\u0434\u0443\u044e \u0432\u0430\u0448\u0443 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c, \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u0432\u044b\u0448\u0435 \u0438\u043b\u0438 \u0440\u0430\u0432\u0435\u043d 5, \n\u0433\u043e\u0440\u043e\u0434 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 +50 \u0442\u043e\u0433\u043e \u0440\u0435\u0441\u0443\u0440\u0441\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u043f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u0438:\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u0410\u0441\u0442\u0440\u0430\u043b\u0443 \u2014  \u043c\u0430\u043d\u0430\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u0425\u0430\u043e\u0441\u0443 \u2014 \u043e\u0447\u043a\u0438  \u043d\u0430\u0439\u043c\u0430\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u041c\u0430\u0442\u0435\u0440\u0438\u0438 \u2014 \u043e\u0447\u043a\u0438  \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0430\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u041f\u0440\u0438\u0440\u043e\u0434\u0435 \u2014  \u0435\u0434\u0430\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u041f\u043e\u0440\u044f\u0434\u043a\u0443 \u2014  \u0437\u043e\u043b\u043e\u0442\u043e\n \u041f\u0440\u0438\u0432\u0435\u0440\u0436\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u0422\u0435\u043d\u0438 \u2014  \u0437\u043d\u0430\u043d\u0438\u044f\n\u041c\u043e\u0436\u043d\u043e \u043f\u043e\u0441\u0442\u0440\u043e\u0438\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u0432 \u0442\u0440\u043e\u043d\u043d\u043e\u043c \u0433\u043e\u0440\u043e\u0434\u0435",
+              type: "\u0413\u043e\u0440\u043e\u0434\u0441\u043a\u043e\u0435 \u0441\u043e\u043e\u0440\u0443\u0436\u0435\u043d\u0438\u0435",
+              cost: "440 1300",
+              level: "\u0421\u0440\u0435\u0434\u043d\u0438\u0439",
+            },
+          ],
+        },
       ];
 
       /* ═══════════════════════════════════════════════════
@@ -4529,6 +4841,7 @@
       let buildSlots = Array(14).fill(null);
       let selectedBook = null;
       let filterText = "";
+      let bonusAffinities = [0, 0, 0, 0, 0, 0]; // начальные бонусы по каждой приверженности
 
       /* ═══════════════════════════════════════════════════
    HELPERS
@@ -4567,6 +4880,7 @@
         buildSlots.forEach((b) => {
           if (b) b.elems.forEach((v, i) => (totals[i] += v));
         });
+        bonusAffinities.forEach((v, i) => (totals[i] += v));
         return totals;
       }
 
@@ -4783,13 +5097,20 @@
         const totals = computeAffinities();
         const row = document.getElementById("affinity-row");
         row.innerHTML = "";
+        const anyBonus = bonusAffinities.some((v) => v !== 0);
         totals.forEach((v, i) => {
-          if (v === 0) return;
+          if (v === 0 && bonusAffinities[i] === 0) return;
+          const fromBooks = v - bonusAffinities[i];
           const badge = document.createElement("div");
           badge.className = "affinity-badge";
           badge.style.color = ELEM_COLORS[i];
           badge.style.borderColor = ELEM_COLORS[i] + "60";
-          badge.innerHTML = `<div class="affinity-dot" style="background:${ELEM_COLORS[i]}"></div>${ELEM_NAMES[i]}: ${v}`;
+          let bonusHtml = "";
+          if (anyBonus && bonusAffinities[i] !== 0) {
+            const sign = bonusAffinities[i] > 0 ? "+" : "";
+            bonusHtml = `<span class="affinity-bonus" title="Начальный бонус">(${sign}${bonusAffinities[i]})</span>`;
+          }
+          badge.innerHTML = `<div class="affinity-dot" style="background:${ELEM_COLORS[i]}"></div>${ELEM_NAMES[i]}: <strong>${v}</strong>${bonusHtml}`;
           row.appendChild(badge);
         });
         if (!totals.some((v) => v > 0)) {
@@ -4951,9 +5272,16 @@
         txt += "║    AGE OF WONDERS 4 — Билд книг     ║\n";
         txt += "╚══════════════════════════════════════╝\n\n";
         txt += `Книг в билде: ${booksInBuild.length}/14\n\n`;
-        txt += "ПРИВЕРЕЖЕННОСТИ:\n";
+        txt += "ПРИВЕРЖЕННОСТИ:\n";
+        const anyBonus = bonusAffinities.some((v) => v !== 0);
         totals.forEach((v, i) => {
-          if (v > 0) txt += `  ${ELEM_NAMES[i]}: ${v}\n`;
+          if (v > 0) {
+            const bonStr =
+              anyBonus && bonusAffinities[i] !== 0
+                ? ` (книги: ${v - bonusAffinities[i]}, бонус: ${bonusAffinities[i] > 0 ? "+" : ""}${bonusAffinities[i]})`
+                : "";
+            txt += `  ${ELEM_NAMES[i]}: ${v}${bonStr}\n`;
+          }
         });
         txt += "\n══════════════════════════════════════\n\n";
         booksInBuild.forEach((b, n) => {
@@ -5017,6 +5345,94 @@
         renderAll();
       });
       document.getElementById("save-btn").addEventListener("click", saveTxt);
+
+      /* ─── BONUS MODAL ─────────────────────────────────── */
+      const bonusOverlay = document.getElementById("bonus-overlay");
+      const bonusGrid = document.getElementById("bonus-grid");
+
+      function openBonusModal() {
+        // Build grid
+        bonusGrid.innerHTML = "";
+        ELEM_NAMES.forEach((name, i) => {
+          const row = document.createElement("div");
+          row.className = "bonus-row";
+          row.innerHTML = `
+      <span class="bonus-dot" style="background:${ELEM_COLORS[i]};color:${ELEM_COLORS[i]}"></span>
+      <span class="bonus-label" style="color:${ELEM_COLORS[i]}">${name}</span>
+      <div class="bonus-controls">
+        <button class="bonus-stepper" data-i="${i}" data-d="-1">−</button>
+        <input class="bonus-value" type="number" data-i="${i}" value="${bonusAffinities[i]}" min="-20" max="20">
+        <button class="bonus-stepper" data-i="${i}" data-d="1">+</button>
+      </div>`;
+          bonusGrid.appendChild(row);
+        });
+
+        // Stepper clicks
+        bonusGrid.querySelectorAll(".bonus-stepper").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const i = +btn.dataset.i;
+            const d = +btn.dataset.d;
+            const inp = bonusGrid.querySelector(`.bonus-value[data-i="${i}"]`);
+            const val = Math.min(
+              20,
+              Math.max(-20, (parseInt(inp.value) || 0) + d),
+            );
+            inp.value = val;
+          });
+        });
+
+        bonusOverlay.style.display = "flex";
+        document.getElementById("bonus-edit-btn").classList.add("active");
+      }
+
+      function closeBonusModal(apply) {
+        if (apply) {
+          bonusGrid.querySelectorAll(".bonus-value").forEach((inp) => {
+            const i = +inp.dataset.i;
+            bonusAffinities[i] = Math.min(
+              20,
+              Math.max(-20, parseInt(inp.value) || 0),
+            );
+          });
+          // Update button state: dim if all zero, highlight if any nonzero
+          const anyBonus = bonusAffinities.some((v) => v !== 0);
+          document
+            .getElementById("bonus-edit-btn")
+            .classList.toggle("active", anyBonus);
+          renderAffinities();
+        }
+        bonusOverlay.style.display = "none";
+        if (!apply) {
+          const anyBonus = bonusAffinities.some((v) => v !== 0);
+          document
+            .getElementById("bonus-edit-btn")
+            .classList.toggle("active", anyBonus);
+        }
+      }
+
+      document
+        .getElementById("bonus-edit-btn")
+        .addEventListener("click", openBonusModal);
+      document
+        .getElementById("bonus-close-btn")
+        .addEventListener("click", () => closeBonusModal(false));
+      document
+        .getElementById("bonus-apply-btn")
+        .addEventListener("click", () => closeBonusModal(true));
+      document
+        .getElementById("bonus-reset-btn")
+        .addEventListener("click", () => {
+          bonusGrid
+            .querySelectorAll(".bonus-value")
+            .forEach((inp) => (inp.value = 0));
+        });
+      bonusOverlay.addEventListener("click", (e) => {
+        if (e.target === bonusOverlay) closeBonusModal(false);
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && bonusOverlay.style.display !== "none")
+          closeBonusModal(false);
+      });
 
       /* Initial render */
       renderAll();
