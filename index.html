@@ -23,8 +23,8 @@
         --forest: #1a4a25;
         --shadow: #0d0905;
         --bg: #0e0b06;
-        --panel-bg: rgba(20,14,6,0.92);
-        --panel-border: rgba(200,151,58,0.35);
+        --panel-bg: rgba(20, 14, 6, 0.92);
+        --panel-border: rgba(200, 151, 58, 0.35);
         --scroll-bg: #1a1408;
 
         --elem0: #00c0dd; /* Астрал */
@@ -42,15 +42,29 @@
         --elem5-name: "Хаос";
       }
 
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       body {
         background: var(--bg);
         color: var(--parchment);
-        font-family: 'IM Fell English', Georgia, serif;
+        font-family: "IM Fell English", Georgia, serif;
         background-image:
-          radial-gradient(ellipse at 20% 10%, rgba(200,151,58,0.06) 0%, transparent 60%),
-          radial-gradient(ellipse at 80% 90%, rgba(139,26,26,0.08) 0%, transparent 50%),
+          radial-gradient(
+            ellipse at 20% 10%,
+            rgba(200, 151, 58, 0.06) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 90%,
+            rgba(139, 26, 26, 0.08) 0%,
+            transparent 50%
+          ),
           url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       }
 
@@ -59,32 +73,46 @@
         text-align: center;
         padding: 18px 20px 12px;
         border-bottom: 1px solid var(--panel-border);
-        background: linear-gradient(180deg, rgba(200,151,58,0.08) 0%, transparent 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(200, 151, 58, 0.08) 0%,
+          transparent 100%
+        );
         position: relative;
       }
       header::after {
-        content: '';
+        content: "";
         position: absolute;
-        bottom: 0; left: 10%; right: 10%;
+        bottom: 0;
+        left: 10%;
+        right: 10%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
       }
       header h1 {
-        font-family: 'Cinzel Decorative', serif;
+        font-family: "Cinzel Decorative", serif;
         font-size: clamp(1rem, 3vw, 1.6rem);
         color: var(--gold-light);
-        letter-spacing: .12em;
-        text-shadow: 0 0 18px rgba(232,184,75,0.45);
+        letter-spacing: 0.12em;
+        text-shadow: 0 0 18px rgba(232, 184, 75, 0.45);
       }
       header p {
-        font-size: .78rem;
+        font-size: 0.78rem;
         color: var(--gold-dim);
         font-style: italic;
         margin-top: 2px;
       }
 
       /* ─── LAYOUT ─────────────────────────────────────────── */
-      html, body { height: 100%; }
+      html,
+      body {
+        height: 100%;
+      }
 
       body {
         display: flex;
@@ -93,7 +121,9 @@
         overflow: hidden;
       }
 
-      header { flex-shrink: 0; }
+      header {
+        flex-shrink: 0;
+      }
 
       #app {
         flex: 1;
@@ -126,21 +156,37 @@
 
       /* ─── RESPONSIVE ─────────────────────────────────────── */
       @media (max-width: 900px) {
-        body { overflow-y: auto; height: auto; }
-        #app { overflow: visible; flex: none; }
+        body {
+          overflow-y: auto;
+          height: auto;
+        }
+        #app {
+          overflow: visible;
+          flex: none;
+        }
         .top-row {
           grid-template-columns: 1fr;
           height: auto;
           max-height: none;
           min-height: unset;
         }
-        .top-row > .panel { max-height: 280px; }
-        .bottom-row { min-height: 400px; flex: none; padding-bottom: 16px; }
-        #build-slots { grid-template-columns: 1fr; }
+        .top-row > .panel {
+          max-height: 280px;
+        }
+        .bottom-row {
+          min-height: 400px;
+          flex: none;
+          padding-bottom: 16px;
+        }
+        #build-slots {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (min-width: 901px) and (max-width: 1200px) {
-        .top-row { grid-template-columns: 260px 1fr 260px; }
+        .top-row {
+          grid-template-columns: 260px 1fr 260px;
+        }
       }
 
       /* ─── PANELS ─────────────────────────────────────────── */
@@ -155,22 +201,26 @@
         min-height: 0;
       }
       .panel::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(200,151,58,0.04) 0%, transparent 60%);
+        background: linear-gradient(
+          135deg,
+          rgba(200, 151, 58, 0.04) 0%,
+          transparent 60%
+        );
         pointer-events: none;
       }
       .panel-header {
-        font-family: 'Cinzel', serif;
-        font-size: .7rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
         font-weight: 700;
-        letter-spacing: .18em;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--gold);
         padding: 7px 12px 6px;
         border-bottom: 1px solid var(--panel-border);
-        background: rgba(200,151,58,0.06);
+        background: rgba(200, 151, 58, 0.06);
         flex-shrink: 0;
       }
       .panel-body {
@@ -180,9 +230,16 @@
         scrollbar-width: thin;
         scrollbar-color: var(--gold-dim) transparent;
       }
-      .panel-body::-webkit-scrollbar { width: 5px; }
-      .panel-body::-webkit-scrollbar-track { background: transparent; }
-      .panel-body::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+      .panel-body::-webkit-scrollbar {
+        width: 5px;
+      }
+      .panel-body::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .panel-body::-webkit-scrollbar-thumb {
+        background: var(--gold-dim);
+        border-radius: 3px;
+      }
 
       /* ─── BOOK CARDS ─────────────────────────────────────── */
       .book-card {
@@ -190,28 +247,33 @@
         align-items: center;
         gap: 8px;
         padding: 6px 8px;
-        border: 1px solid rgba(200,151,58,0.2);
+        border: 1px solid rgba(200, 151, 58, 0.2);
         border-radius: 3px;
         margin-bottom: 5px;
         cursor: grab;
         user-select: none;
-        transition: border-color .15s, background .15s, box-shadow .15s;
-        background: rgba(255,255,255,0.02);
+        transition:
+          border-color 0.15s,
+          background 0.15s,
+          box-shadow 0.15s;
+        background: rgba(255, 255, 255, 0.02);
         position: relative;
       }
-      .book-card:active { cursor: grabbing; }
+      .book-card:active {
+        cursor: grabbing;
+      }
       .book-card:hover {
         border-color: var(--gold);
-        background: rgba(200,151,58,0.1);
-        box-shadow: 0 0 10px rgba(200,151,58,0.15);
+        background: rgba(200, 151, 58, 0.1);
+        box-shadow: 0 0 10px rgba(200, 151, 58, 0.15);
       }
       .book-card.selected {
         border-color: var(--gold-light);
-        background: rgba(200,151,58,0.15);
-        box-shadow: 0 0 14px rgba(232,184,75,0.25);
+        background: rgba(200, 151, 58, 0.15);
+        box-shadow: 0 0 14px rgba(232, 184, 75, 0.25);
       }
       .book-card.in-build {
-        opacity: .55;
+        opacity: 0.55;
       }
       .book-icon {
         width: 38px;
@@ -219,25 +281,28 @@
         object-fit: contain;
         border-radius: 3px;
         flex-shrink: 0;
-        background: rgba(200,151,58,0.1);
-        border: 1px solid rgba(200,151,58,0.2);
+        background: rgba(200, 151, 58, 0.1);
+        border: 1px solid rgba(200, 151, 58, 0.2);
       }
       .book-icon-placeholder {
         width: 38px;
         height: 38px;
         flex-shrink: 0;
-        background: rgba(200,151,58,0.1);
-        border: 1px solid rgba(200,151,58,0.2);
+        background: rgba(200, 151, 58, 0.1);
+        border: 1px solid rgba(200, 151, 58, 0.2);
         border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 18px;
       }
-      .book-info { flex: 1; min-width: 0; }
+      .book-info {
+        flex: 1;
+        min-width: 0;
+      }
       .book-name {
-        font-family: 'Cinzel', serif;
-        font-size: .7rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
         font-weight: 600;
         color: var(--parchment);
         white-space: nowrap;
@@ -245,7 +310,7 @@
         text-overflow: ellipsis;
       }
       .book-rang {
-        font-size: .65rem;
+        font-size: 0.65rem;
         color: var(--gold-dim);
         font-style: italic;
       }
@@ -256,14 +321,17 @@
         margin-top: 2px;
       }
       .elem-pip {
-        width: 10px; height: 10px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
         display: inline-block;
         box-shadow: 0 0 4px currentColor;
       }
 
       /* ─── BUILD GRID ─────────────────────────────────────── */
-      #build-panel { min-height: 0; }
+      #build-panel {
+        min-height: 0;
+      }
       #build-slots {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -271,24 +339,26 @@
       }
       .build-slot {
         height: 52px;
-        border: 1px dashed rgba(200,151,58,0.25);
+        border: 1px dashed rgba(200, 151, 58, 0.25);
         border-radius: 4px;
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 7px;
         padding: 0 8px;
-        font-size: .55rem;
+        font-size: 0.55rem;
         color: var(--gold-dim);
-        transition: border-color .15s, background .15s;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
         position: relative;
         cursor: default;
         overflow: hidden;
-        background: rgba(255,255,255,0.01);
+        background: rgba(255, 255, 255, 0.01);
       }
       .build-slot-num {
-        font-family: 'Cinzel', serif;
-        font-size: .5rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.5rem;
         color: var(--gold-dim);
         min-width: 12px;
         text-align: center;
@@ -296,29 +366,42 @@
       }
       .build-slot.drag-over {
         border-color: var(--gold-light);
-        background: rgba(200,151,58,0.12);
-        box-shadow: 0 0 14px rgba(232,184,75,0.2);
+        background: rgba(200, 151, 58, 0.12);
+        box-shadow: 0 0 14px rgba(232, 184, 75, 0.2);
       }
       .build-slot.filled {
         border-style: solid;
-        border-color: rgba(200,151,58,0.4);
-        background: rgba(200,151,58,0.06);
+        border-color: rgba(200, 151, 58, 0.4);
+        background: rgba(200, 151, 58, 0.06);
         cursor: pointer;
       }
       .build-slot.filled:hover {
         border-color: var(--gold-light);
-        background: rgba(200,151,58,0.14);
+        background: rgba(200, 151, 58, 0.14);
       }
       .build-slot.filled.selected-slot {
         border-color: var(--gold-light);
-        box-shadow: 0 0 12px rgba(232,184,75,0.3);
+        box-shadow: 0 0 12px rgba(232, 184, 75, 0.3);
       }
-      .slot-icon { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; border-radius: 3px; }
-      .slot-icon-ph { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
-      .slot-info { flex: 1; min-width: 0; }
+      .slot-icon {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border-radius: 3px;
+      }
+      .slot-icon-ph {
+        font-size: 1.4rem;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .slot-info {
+        flex: 1;
+        min-width: 0;
+      }
       .slot-name {
-        font-family: 'Cinzel', serif;
-        font-size: .58rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.58rem;
         font-weight: 600;
         color: var(--gold);
         white-space: nowrap;
@@ -327,27 +410,36 @@
         line-height: 1.3;
       }
       .slot-rang {
-        font-size: .52rem;
+        font-size: 0.52rem;
         color: var(--gold-dim);
         font-style: italic;
       }
-      .slot-elems { display: flex; gap: 2px; margin-top: 2px; flex-wrap: wrap; }
+      .slot-elems {
+        display: flex;
+        gap: 2px;
+        margin-top: 2px;
+        flex-wrap: wrap;
+      }
       .slot-remove {
         position: absolute;
-        top: 3px; right: 4px;
-        width: 14px; height: 14px;
-        background: rgba(139,26,26,0.7);
+        top: 3px;
+        right: 4px;
+        width: 14px;
+        height: 14px;
+        background: rgba(139, 26, 26, 0.7);
         border: none;
         border-radius: 50%;
         color: #ff9999;
-        font-size: .5rem;
+        font-size: 0.5rem;
         cursor: pointer;
         display: none;
         align-items: center;
         justify-content: center;
         line-height: 1;
       }
-      .build-slot.filled:hover .slot-remove { display: flex; }
+      .build-slot.filled:hover .slot-remove {
+        display: flex;
+      }
 
       /* ─── AFFINITY SUMMARY ───────────────────────────────── */
       #affinity-row {
@@ -356,7 +448,7 @@
         flex-wrap: wrap;
         margin-top: 8px;
         padding-top: 8px;
-        border-top: 1px solid rgba(200,151,58,0.15);
+        border-top: 1px solid rgba(200, 151, 58, 0.15);
       }
       .affinity-badge {
         display: flex;
@@ -364,68 +456,79 @@
         gap: 5px;
         padding: 3px 8px;
         border-radius: 20px;
-        font-family: 'Cinzel', serif;
-        font-size: .65rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.65rem;
         font-weight: 600;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
         border: 1px solid currentColor;
       }
       .affinity-dot {
-        width: 9px; height: 9px;
+        width: 9px;
+        height: 9px;
         border-radius: 50%;
         background: currentColor;
         box-shadow: 0 0 5px currentColor;
       }
 
       /* ─── DESCRIPTION PANEL ──────────────────────────────── */
-      #desc-panel .panel-body { padding: 12px; }
+      #desc-panel .panel-body {
+        padding: 12px;
+      }
       .desc-title {
-        font-family: 'Cinzel', serif;
-        font-size: .85rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.85rem;
         font-weight: 700;
         color: var(--gold-light);
         margin-bottom: 4px;
-        text-shadow: 0 0 10px rgba(232,184,75,0.3);
+        text-shadow: 0 0 10px rgba(232, 184, 75, 0.3);
       }
       .desc-rang {
-        font-size: .7rem;
+        font-size: 0.7rem;
         color: var(--gold-dim);
         font-style: italic;
         margin-bottom: 8px;
       }
-      .desc-elems { margin-bottom: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+      .desc-elems {
+        margin-bottom: 10px;
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
       .elem-tag {
         padding: 1px 7px;
         border-radius: 10px;
-        font-family: 'Cinzel', serif;
-        font-size: .6rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.6rem;
         border: 1px solid currentColor;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
       }
       .desc-empty {
         color: var(--gold-dim);
         font-style: italic;
-        font-size: .78rem;
+        font-size: 0.78rem;
         text-align: center;
         margin-top: 30px;
       }
 
       /* ─── TOME DATA LIST ─────────────────────────────────── */
       .tome-item {
-        border-bottom: 1px solid rgba(200,151,58,0.1);
+        border-bottom: 1px solid rgba(200, 151, 58, 0.1);
         padding-bottom: 8px;
         margin-bottom: 8px;
       }
-      .tome-item:last-child { border-bottom: none; margin-bottom: 0; }
+      .tome-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
       .tome-item-name {
-        font-family: 'Cinzel', serif;
-        font-size: .68rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.68rem;
         font-weight: 600;
         color: var(--gold);
         margin-bottom: 2px;
       }
       .tome-item-meta {
-        font-size: .6rem;
+        font-size: 0.6rem;
         color: var(--gold-dim);
         margin-bottom: 3px;
       }
@@ -433,18 +536,18 @@
         display: inline-block;
         padding: 0 5px;
         border-radius: 8px;
-        background: rgba(200,151,58,0.1);
-        border: 1px solid rgba(200,151,58,0.25);
-        font-size: .58rem;
+        background: rgba(200, 151, 58, 0.1);
+        border: 1px solid rgba(200, 151, 58, 0.25);
+        font-size: 0.58rem;
         margin-right: 4px;
       }
       .tome-item-level {
         font-style: italic;
-        font-size: .58rem;
+        font-size: 0.58rem;
         color: var(--crimson);
       }
       .tome-item-desc {
-        font-size: .65rem;
+        font-size: 0.65rem;
         color: var(--parchment-dark);
         line-height: 1.5;
         white-space: pre-wrap;
@@ -452,27 +555,27 @@
 
       /* ─── TOME DATA GROUPING ─────────────────────────── */
       .tomedata-type-header {
-        font-family: 'Cinzel', serif;
-        font-size: .63rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.63rem;
         font-weight: 700;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--gold);
         padding: 7px 0 4px;
         margin-top: 4px;
-        border-bottom: 1px solid rgba(200,151,58,0.3);
+        border-bottom: 1px solid rgba(200, 151, 58, 0.3);
         display: flex;
         align-items: center;
         gap: 6px;
       }
       .tomedata-type-header::before {
-        content: '◆';
-        font-size: .5rem;
+        content: "◆";
+        font-size: 0.5rem;
         color: var(--gold-dim);
       }
       .tomedata-source {
-        font-family: 'IM Fell English', serif;
-        font-size: .56rem;
+        font-family: "IM Fell English", serif;
+        font-size: 0.56rem;
         color: var(--gold-dim);
         font-weight: 400;
         font-style: italic;
@@ -481,38 +584,50 @@
       }
       .add-btn {
         flex-shrink: 0;
-        width: 22px; height: 22px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         border: 1px solid var(--gold-dim);
-        background: rgba(200,151,58,0.1);
+        background: rgba(200, 151, 58, 0.1);
         color: var(--gold);
-        font-size: .9rem;
+        font-size: 0.9rem;
         line-height: 1;
         cursor: pointer;
-        display: flex; align-items: center; justify-content: center;
-        transition: all .15s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
         font-family: monospace;
       }
       .add-btn:hover:not(:disabled) {
-        background: rgba(200,151,58,0.3);
+        background: rgba(200, 151, 58, 0.3);
         border-color: var(--gold-light);
         color: var(--gold-light);
-        box-shadow: 0 0 6px rgba(200,151,58,0.3);
+        box-shadow: 0 0 6px rgba(200, 151, 58, 0.3);
       }
-      .add-btn:disabled { opacity: .3; cursor: not-allowed; }
+      .add-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
       .add-btn.in-build-btn {
-        border-color: rgba(139,26,26,0.5);
+        border-color: rgba(139, 26, 26, 0.5);
         color: #c04040;
-        background: rgba(139,26,26,0.1);
+        background: rgba(139, 26, 26, 0.1);
       }
       .add-btn.in-build-btn:hover {
-        background: rgba(139,26,26,0.25);
+        background: rgba(139, 26, 26, 0.25);
         border-color: #c04040;
-        box-shadow: 0 0 6px rgba(139,26,26,0.3);
+        box-shadow: 0 0 6px rgba(139, 26, 26, 0.3);
       }
 
       /* ─── BOOK LIST (BOTTOM) ─────────────────────────────── */
-      #list-panel { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+      #list-panel {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
       #list-panel .panel-body {
         display: block;
         padding: 0 10px 10px;
@@ -521,35 +636,36 @@
 
       /* Grouping */
       .group-af-header {
-        font-family: 'Cinzel', serif;
-        font-size: .72rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: .12em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         padding: 10px 4px 4px;
         display: flex;
         align-items: center;
         gap: 7px;
         border-bottom: 1px solid currentColor;
-        opacity: .9;
+        opacity: 0.9;
         margin-top: 4px;
       }
       .group-af-dot {
-        width: 10px; height: 10px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
         display: inline-block;
         flex-shrink: 0;
       }
       .group-rank-header {
-        font-family: 'Cinzel', serif;
-        font-size: .6rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.6rem;
         font-weight: 600;
         color: var(--gold-dim);
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         padding: 5px 4px 3px;
         margin-top: 2px;
-        opacity: .75;
+        opacity: 0.75;
       }
       .group-cards-row {
         display: grid;
@@ -565,123 +681,152 @@
         gap: 8px;
         padding: 6px 8px;
         border-bottom: 1px solid var(--panel-border);
-        background: rgba(200,151,58,0.04);
+        background: rgba(200, 151, 58, 0.04);
         flex-wrap: wrap;
       }
       .btn {
-        font-family: 'Cinzel', serif;
-        font-size: .62rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.62rem;
         font-weight: 700;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         padding: 5px 12px;
         border: 1px solid var(--gold-dim);
         border-radius: 3px;
-        background: rgba(200,151,58,0.08);
+        background: rgba(200, 151, 58, 0.08);
         color: var(--gold);
         cursor: pointer;
-        transition: all .15s;
+        transition: all 0.15s;
       }
       .btn:hover {
-        background: rgba(200,151,58,0.2);
+        background: rgba(200, 151, 58, 0.2);
         border-color: var(--gold);
         color: var(--gold-light);
-        box-shadow: 0 0 8px rgba(200,151,58,0.2);
+        box-shadow: 0 0 8px rgba(200, 151, 58, 0.2);
       }
-      .btn.danger { border-color: rgba(139,26,26,0.5); color: #c04040; }
-      .btn.danger:hover { background: rgba(139,26,26,0.2); border-color: #c04040; }
+      .btn.danger {
+        border-color: rgba(139, 26, 26, 0.5);
+        color: #c04040;
+      }
+      .btn.danger:hover {
+        background: rgba(139, 26, 26, 0.2);
+        border-color: #c04040;
+      }
       .filter-input {
         flex: 1;
         min-width: 120px;
-        background: rgba(0,0,0,0.3);
-        border: 1px solid rgba(200,151,58,0.2);
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(200, 151, 58, 0.2);
         border-radius: 3px;
         color: var(--parchment);
-        font-family: 'IM Fell English', serif;
-        font-size: .72rem;
+        font-family: "IM Fell English", serif;
+        font-size: 0.72rem;
         padding: 4px 8px;
         outline: none;
       }
-      .filter-input:focus { border-color: var(--gold); }
-      .filter-input::placeholder { color: var(--gold-dim); font-style: italic; }
+      .filter-input:focus {
+        border-color: var(--gold);
+      }
+      .filter-input::placeholder {
+        color: var(--gold-dim);
+        font-style: italic;
+      }
       label.file-btn {
-        font-family: 'Cinzel', serif;
-        font-size: .62rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.62rem;
         font-weight: 700;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         padding: 5px 12px;
         border: 1px solid var(--gold-dim);
         border-radius: 3px;
-        background: rgba(200,151,58,0.08);
+        background: rgba(200, 151, 58, 0.08);
         color: var(--gold);
         cursor: pointer;
-        transition: all .15s;
+        transition: all 0.15s;
         display: inline-flex;
         align-items: center;
         gap: 4px;
       }
       label.file-btn:hover {
-        background: rgba(200,151,58,0.2);
+        background: rgba(200, 151, 58, 0.2);
         border-color: var(--gold);
         color: var(--gold-light);
-        box-shadow: 0 0 8px rgba(200,151,58,0.2);
+        box-shadow: 0 0 8px rgba(200, 151, 58, 0.2);
       }
-      #file-input { display: none; }
+      #file-input {
+        display: none;
+      }
 
       .build-count {
-        font-family: 'Cinzel', serif;
-        font-size: .65rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.65rem;
         color: var(--gold-dim);
         margin-left: auto;
         white-space: nowrap;
       }
-      .build-count span { color: var(--gold); }
+      .build-count span {
+        color: var(--gold);
+      }
 
       /* ─── DRAG GHOST (unused, kept for safety) ──────────── */
-      #drag-ghost { display: none; }
+      #drag-ghost {
+        display: none;
+      }
 
       /* ─── ELEM COLORS ────────────────────────────────────── */
-      .e0 { color: var(--elem0); }
-      .e1 { color: var(--elem1); }
-      .e2 { color: var(--elem2); }
-      .e3 { color: var(--elem3); }
-      .e4 { color: var(--elem4); }
-      .e5 { color: var(--elem5); }
+      .e0 {
+        color: var(--elem0);
+      }
+      .e1 {
+        color: var(--elem1);
+      }
+      .e2 {
+        color: var(--elem2);
+      }
+      .e3 {
+        color: var(--elem3);
+      }
+      .e4 {
+        color: var(--elem4);
+      }
+      .e5 {
+        color: var(--elem5);
+      }
 
       /* ─── BONUS EDIT BUTTON ──────────────────────────────── */
       .btn-bonus-edit {
-        font-family: 'Cinzel', serif;
-        font-size: .58rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.58rem;
         font-weight: 700;
-        letter-spacing: .08em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         padding: 3px 9px;
         border: 1px solid var(--gold-dim);
         border-radius: 3px;
-        background: rgba(200,151,58,0.08);
+        background: rgba(200, 151, 58, 0.08);
         color: var(--gold-dim);
         cursor: pointer;
-        transition: all .15s;
+        transition: all 0.15s;
         margin-left: 8px;
         flex-shrink: 0;
       }
       .btn-bonus-edit:hover {
-        background: rgba(200,151,58,0.18);
+        background: rgba(200, 151, 58, 0.18);
         border-color: var(--gold);
         color: var(--gold);
       }
       .btn-bonus-edit.active {
         border-color: var(--gold-light);
         color: var(--gold-light);
-        background: rgba(200,151,58,0.2);
-        box-shadow: 0 0 8px rgba(232,184,75,0.2);
+        background: rgba(200, 151, 58, 0.2);
+        box-shadow: 0 0 8px rgba(232, 184, 75, 0.2);
       }
 
       /* ─── AFFINITY BONUS LABEL ───────────────────────────── */
       .affinity-bonus {
-        font-size: .58rem;
-        opacity: .7;
+        font-size: 0.58rem;
+        opacity: 0.7;
         margin-left: 3px;
         font-style: italic;
       }
@@ -690,7 +835,7 @@
       .bonus-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.75);
+        background: rgba(0, 0, 0, 0.75);
         z-index: 1000;
         display: flex;
         align-items: center;
@@ -705,7 +850,9 @@
         min-width: 320px;
         max-width: 480px;
         width: 90vw;
-        box-shadow: 0 0 40px rgba(200,151,58,0.2), 0 0 80px rgba(0,0,0,0.8);
+        box-shadow:
+          0 0 40px rgba(200, 151, 58, 0.2),
+          0 0 80px rgba(0, 0, 0, 0.8);
         overflow: hidden;
       }
       .bonus-modal-header {
@@ -713,28 +860,30 @@
         align-items: center;
         justify-content: space-between;
         padding: 12px 16px 10px;
-        background: rgba(200,151,58,0.07);
-        border-bottom: 1px solid rgba(200,151,58,0.25);
-        font-family: 'Cinzel', serif;
-        font-size: .75rem;
+        background: rgba(200, 151, 58, 0.07);
+        border-bottom: 1px solid rgba(200, 151, 58, 0.25);
+        font-family: "Cinzel", serif;
+        font-size: 0.75rem;
         font-weight: 700;
         color: var(--gold-light);
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
       }
       .bonus-close-btn {
         background: none;
         border: none;
         color: var(--gold-dim);
-        font-size: .9rem;
+        font-size: 0.9rem;
         cursor: pointer;
         line-height: 1;
         padding: 2px 4px;
         border-radius: 3px;
-        transition: color .15s;
+        transition: color 0.15s;
       }
-      .bonus-close-btn:hover { color: var(--gold-light); }
+      .bonus-close-btn:hover {
+        color: var(--gold-light);
+      }
       .bonus-modal-hint {
-        font-size: .68rem;
+        font-size: 0.68rem;
         color: var(--gold-dim);
         font-style: italic;
         padding: 10px 16px 6px;
@@ -750,20 +899,21 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid rgba(200,151,58,0.12);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(200, 151, 58, 0.12);
         border-radius: 4px;
         padding: 6px 10px;
       }
       .bonus-dot {
-        width: 10px; height: 10px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
         flex-shrink: 0;
         box-shadow: 0 0 5px currentColor;
       }
       .bonus-label {
-        font-family: 'Cinzel', serif;
-        font-size: .62rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.62rem;
         flex: 1;
         min-width: 0;
         white-space: nowrap;
@@ -777,52 +927,122 @@
         flex-shrink: 0;
       }
       .bonus-stepper {
-        width: 20px; height: 20px;
+        width: 20px;
+        height: 20px;
         border-radius: 3px;
-        border: 1px solid rgba(200,151,58,0.3);
-        background: rgba(200,151,58,0.08);
+        border: 1px solid rgba(200, 151, 58, 0.3);
+        background: rgba(200, 151, 58, 0.08);
         color: var(--gold);
-        font-size: .8rem;
+        font-size: 0.8rem;
         line-height: 1;
         cursor: pointer;
-        display: flex; align-items: center; justify-content: center;
-        transition: all .12s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.12s;
         flex-shrink: 0;
         font-family: monospace;
       }
       .bonus-stepper:hover {
-        background: rgba(200,151,58,0.22);
+        background: rgba(200, 151, 58, 0.22);
         border-color: var(--gold);
       }
       .bonus-value {
         width: 36px;
         text-align: center;
-        background: rgba(0,0,0,0.35);
-        border: 1px solid rgba(200,151,58,0.2);
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(200, 151, 58, 0.2);
         border-radius: 3px;
         color: var(--parchment);
-        font-family: 'Cinzel', serif;
-        font-size: .7rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
         padding: 2px 0;
         outline: none;
         -moz-appearance: textfield;
       }
       .bonus-value::-webkit-outer-spin-button,
-      .bonus-value::-webkit-inner-spin-button { -webkit-appearance: none; }
-      .bonus-value:focus { border-color: var(--gold); }
+      .bonus-value::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      .bonus-value:focus {
+        border-color: var(--gold);
+      }
       .bonus-modal-footer {
         display: flex;
         gap: 8px;
         justify-content: flex-end;
         padding: 10px 16px 14px;
-        border-top: 1px solid rgba(200,151,58,0.15);
-      }
+        border-top: 1px solid rgba(200, 151, 58, 0.15);
+
         text-align: center;
         color: var(--gold-dim);
-        font-size: .7rem;
-        letter-spacing: .5em;
+        font-size: 0.7rem;
+        letter-spacing: 0.5em;
         padding: 4px 0;
-        opacity: .5;
+        opacity: 0.5;
+      }
+
+      /* ─── TOAST ──────────────────────────────────────────── */
+      #build-toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #1a0d0d;
+        border: 1px solid var(--crimson);
+        border-radius: 5px;
+        padding: 10px 18px;
+        font-family: "IM Fell English", serif;
+        font-size: 0.75rem;
+        color: #f0a0a0;
+        max-width: 440px;
+        width: max-content;
+        text-align: center;
+        z-index: 9000;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        box-shadow: 0 4px 24px rgba(139, 26, 26, 0.4);
+        line-height: 1.6;
+      }
+      #build-toast strong {
+        color: #ff8888;
+      }
+      .toast-detail {
+        font-size: 0.68rem;
+        color: #c08080;
+        display: block;
+        margin-top: 2px;
+      }
+      #build-toast.toast-show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      #build-toast.toast-hide {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      /* ─── LOCKED CARD STATE ──────────────────────────────── */
+      .book-card.locked {
+        opacity: 0.5;
+      }
+      .book-card.locked .add-btn {
+        border-color: #553333 !important;
+        color: #884444 !important;
+        cursor: not-allowed !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      .lock-badge {
+        font-size: 0.52rem;
+        color: #884444;
+        font-family: "Cinzel", serif;
+        margin-top: 1px;
+        font-style: italic;
+        white-space: nowrap;
       }
     </style>
   </head>
@@ -4833,7 +5053,6 @@
           ],
         },
       ];
-
       /* ═══════════════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════════════ */
@@ -4964,11 +5183,17 @@
             groups[afKey][rank].forEach(({ book, idx }) => {
               const inBuild = buildSlots.some((b) => b === book);
               const isSelected = selectedBook === book;
+
+              // Check if can be added (only when not already in build)
+              const blockErr = !inBuild ? checkCanAdd(book) : null;
+              const isLocked = !inBuild && !!blockErr;
+
               const card = document.createElement("div");
               card.className =
                 "book-card" +
                 (inBuild ? " in-build" : "") +
-                (isSelected ? " selected" : "");
+                (isSelected ? " selected" : "") +
+                (isLocked ? " locked" : "");
               card.dataset.idx = idx;
 
               const iconEl = makeIcon(book.icon, book.tome);
@@ -4979,15 +5204,25 @@
               } else card.appendChild(iconEl);
 
               const buildFull = buildSlots.filter(Boolean).length >= 14;
-              const addBtnHtml = !inBuild
-                ? `<button class="add-btn" title="Добавить в билд" ${buildFull ? "disabled" : ""}>+</button>`
-                : `<button class="add-btn in-build-btn" title="Убрать из билда">−</button>`;
+              let addBtnHtml = "";
+              if (inBuild) {
+                addBtnHtml = `<button class="add-btn in-build-btn" title="Убрать из билда">−</button>`;
+              } else if (isLocked) {
+                addBtnHtml = `<button class="add-btn" disabled title="${blockErr.detail}">🔒</button>`;
+              } else {
+                addBtnHtml = `<button class="add-btn" title="Добавить в билд" ${buildFull ? "disabled" : ""}>+</button>`;
+              }
+
+              const lockHint = isLocked
+                ? `<div class="lock-badge" title="${blockErr.detail}">${blockErr.reason}</div>`
+                : "";
 
               card.innerHTML += `
           <div class="book-info">
             <div class="book-name">${book.tome}</div>
             <div class="book-rang">Ранг ${book.rang} ${inBuild ? "· В билде" : ""}</div>
             ${renderElemPips(book.elems)}
+            ${lockHint}
           </div>
           ${addBtnHtml}`;
 
@@ -5004,8 +5239,10 @@
                   if (inBuild) {
                     const si = buildSlots.findIndex((b) => b === book);
                     if (si !== -1) removeFromBuild(si);
-                  } else {
+                  } else if (!isLocked) {
                     addToBuild(idx);
+                  } else {
+                    showToast(blockErr.reason, blockErr.detail);
                   }
                 });
               }
@@ -5226,10 +5463,102 @@
       /* ═══════════════════════════════════════════════════
    BUILD ACTIONS
 ═══════════════════════════════════════════════════ */
+
+      // Returns null if ok, or {reason, detail} if blocked
+      function checkCanAdd(book) {
+        const rank = parseInt(book.rang) || 1;
+        const currentCount = buildSlots.filter(Boolean).length;
+        const affinities = computeAffinities(); // includes bonuses
+
+        // Rules per rank
+        const RULES = {
+          1: { minBooks: 0, minAffinity: 0 },
+          2: { minBooks: 2, minAffinity: 0 },
+          3: { minBooks: 4, minAffinity: 3 },
+          4: { minBooks: 6, minAffinity: 6 },
+          5: { minBooks: 8, minAffinity: 8 },
+        };
+
+        const rule = RULES[rank] || RULES[1];
+
+        if (currentCount < rule.minBooks) {
+          return {
+            reason: `Недостаточно книг в билде`,
+            detail: `Для книги ранга ${rank} нужно минимум ${rule.minBooks} книг в билде (сейчас: ${currentCount})`,
+          };
+        }
+
+        if (rule.minAffinity > 0) {
+          // Check that at least one of the book's affinities has enough total points
+          const bookAffinities = book.elems
+            .map((v, i) => (v > 0 ? i : -1))
+            .filter((i) => i >= 0);
+
+          if (bookAffinities.length === 0) {
+            // No affinity requirement if book has no elems — allow
+          } else {
+            const maxAffinity = Math.max(
+              ...bookAffinities.map((i) => affinities[i]),
+            );
+            if (maxAffinity < rule.minAffinity) {
+              const needed = bookAffinities
+                .map((i) => ELEM_NAMES[i])
+                .join(" или ");
+              return {
+                reason: `Недостаточно приверженности`,
+                detail: `Для книги ранга ${rank} нужно ≥${rule.minAffinity} очков по одной из: ${needed} (максимум сейчас: ${maxAffinity})`,
+              };
+            }
+          }
+        }
+
+        if (rank >= 5) {
+          const alreadyHas5 = buildSlots.some(
+            (b) => b && (parseInt(b.rang) || 1) >= 5,
+          );
+          if (alreadyHas5) {
+            return {
+              reason: `Уже есть книга 5 ранга`,
+              detail: `В билде может быть только одна книга ранга 5`,
+            };
+          }
+        }
+
+        if (currentCount >= 14) {
+          return { reason: "Билд заполнен", detail: "В билде уже 14 книг" };
+        }
+
+        return null; // all good
+      }
+
+      function showToast(msg, detail) {
+        let toast = document.getElementById("build-toast");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.id = "build-toast";
+          document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<strong>${msg}</strong>${detail ? `<br><span class="toast-detail">${detail}</span>` : ""}`;
+        toast.classList.remove("toast-hide");
+        toast.classList.add("toast-show");
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => {
+          toast.classList.remove("toast-show");
+          toast.classList.add("toast-hide");
+        }, 3200);
+      }
+
       function addToBuild(bookIdx, slotIdx) {
         const book = allBooks[bookIdx];
         if (!book) return;
         if (buildSlots.some((b) => b === book)) return;
+
+        const err = checkCanAdd(book);
+        if (err) {
+          showToast(err.reason, err.detail);
+          return;
+        }
+
         if (slotIdx !== undefined && slotIdx >= 0 && slotIdx < 14) {
           buildSlots[slotIdx] = book;
         } else {
@@ -5242,9 +5571,6 @@
 
       function removeFromBuild(slotIdx) {
         buildSlots[slotIdx] = null;
-        if (selectedBook && !buildSlots.some((b) => b === selectedBook)) {
-          // keep selected
-        }
         renderAll();
       }
 
